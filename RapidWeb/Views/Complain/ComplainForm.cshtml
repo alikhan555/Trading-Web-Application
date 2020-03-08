@@ -1,0 +1,198 @@
+﻿@model RapidWeb.ViewModel.ComplainViewModel
+@{
+    ViewBag.Title = "ComplainForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="col-xl-12 order-xl-1">
+    <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+                <div class="col-8">
+                    <h3 class="mb-0">New Complain</h3>
+                </div>
+                <div class="col-4">
+                    <a class="float-right btn btn-primary btn-sm" href="@Url.Action("Index")">Back To List</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+            @using (Html.BeginForm("CreateComplain", "Complain", FormMethod.Post, new { autocomplete = "off" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(x => x.Complain.ClientId)
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Client.PrefixId, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.Client.PrefixId, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-12">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Client.Name, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.Client.Name, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Client.City.Name, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.Client.City.Name, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Client.City.District, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.Client.City.District, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Client.Area, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.Client.Area, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-12">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Client.Address, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.Client.Address, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-12">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Client.Email, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.Client.Email, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Client.OnDays, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.Client.OnDays, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Client.Timing, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.Client.Timing, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-12">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Complain.ContactPerson, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.Complain.ContactPerson, new { @class = "form-control form-control-alternative" })
+                            @Html.ValidationMessageFor(U => U.Complain.ContactPerson, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+                </div>
+
+                <hr />
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Complain.ComplainReference, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.Complain.ComplainReference, new { @class = "form-control form-control-alternative" })
+                            @Html.ValidationMessageFor(U => U.Complain.ComplainReference, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Complain.ComplainType, new { @class = "form-control-label" })
+                            @Html.DropDownListFor(U => U.Complain.ComplainType, new List<SelectListItem>()
+                            {
+                                new SelectListItem() { Value = "MRV", Text = "Monthly Routine Visit"},
+                                new SelectListItem() { Value = "SV", Text = "Special Visit"},
+                                new SelectListItem() { Value = "EV", Text = "Emergency Visit"}
+                            }, "Select Complain Type",new { @class = "form-control form-control-alternative" })
+                            @Html.ValidationMessageFor(U => U.Complain.ComplainType, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Complain.EmployeeId, new { @class = "form-control-label" })
+                            @Html.DropDownListFor(U => U.Complain.EmployeeId, new SelectList(Model.Employee, "Id", "Name"), "Select Employee", new { @type = "date", @class = "form-control form-control-alternative" })
+                            @Html.ValidationMessageFor(U => U.Complain.EmployeeId, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Complain.ServiceId, new { @class = "form-control-label" })
+                            @Html.DropDownListFor(U => U.Complain.ServiceId, new SelectList(Model.Service, "Id", "Description"), "Select Service", new { @type = "date", @class = "form-control form-control-alternative" })
+                            @Html.ValidationMessageFor(U => U.Complain.ServiceId, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Complain.ComplainNature, new { @class = "form-control-label" })
+                            @Html.DropDownListFor(U => U.Complain.ComplainNature, new List<SelectListItem>()
+                            {
+                                new SelectListItem() { Text = "Maintenance", Value = "Maintenance"},
+                                new SelectListItem() { Text = "Development", Value = "Development"},
+                                new SelectListItem() { Text = "Survey", Value = "Survey"}
+                            }, "Select Complain Nature", new { @class = "form-control form-control-alternative" })
+                            @Html.ValidationMessageFor(U => U.Complain.ComplainNature, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <div class="custom-control custom-control-alternative custom-checkbox mb-3">
+                            @Html.CheckBoxFor(U => U.Complain.IsApproved, new { @class = "custom-control-input" })
+                            @Html.LabelFor(U => U.Complain.IsApproved, new { @class = "custom-control-label" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-12">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Complain.Description, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.Complain.Description, new { @class = "form-control form-control-alternative" })
+                            @Html.ValidationMessageFor(U => U.Complain.Description, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Generate" class="btn btn-success" />
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

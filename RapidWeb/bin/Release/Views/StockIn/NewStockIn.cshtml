@@ -1,0 +1,61 @@
+﻿@using RapidWeb.Models
+@model IEnumerable<RapidWeb.Models.PurchaseOrder>
+@{
+    ViewBag.Title = "New Stock-In";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="col-xl-12 order-xl-1">
+    <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+                <div class="col-8">
+                    <h3 class="mb-0">@ViewBag.Title</h3>
+                </div>
+                <div class="col-4">
+                    <a class="float-right btn btn-primary btn-sm" href="@Url.Action("Index","StockIn")">Back To List</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+
+            @using (Html.BeginForm("StockInForm", "StockIn", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label class="form-control-label" for="Id">Purchase Order Id</label>
+                        <div class="form-group">
+                            <div class="input-group input-group-alternative">
+                                <select class="form-control form-control-alternative valid" id="Id" name="Id">
+                                    <option value="1">Select Purchase Order</option>
+                                    @foreach (PurchaseOrder purchaseOrder in @Model)
+                                    {
+                                        <option value="@purchaseOrder.Id">@purchaseOrder.PrefixId</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Submit" class="btn btn-success" />
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+}

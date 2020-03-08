@@ -1,0 +1,74 @@
+﻿@using RapidWeb.Models
+@model IEnumerable<RapidWeb.Models.Client>
+@{
+    ViewBag.Title = "New Complain";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="col-xl-12 order-xl-1">
+    <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+                <div class="col-8">
+                    <h3 class="mb-0">@ViewBag.Title</h3>
+                </div>
+                <div class="col-4">
+                    <a class="float-right btn btn-primary btn-sm" href="@Url.Action("Index","Complain")">Back To List</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+            @using (Html.BeginForm("ComplainForm", "Complain", FormMethod.Post, new { id = "ClientIdForm" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label class="form-control-label" for="Id">Client Id</label>
+                        <div class="form-group">
+                            <div class="input-group input-group-alternative">
+                                <select class="form-control form-control-alternative valid" id="ClientId" name="id">
+                                    <option value="-1">Select Client ID</option>
+
+                                    @foreach (Client client in @Model)
+                                    {
+                                        <option value="@client.Id">@client.PrefixId --- @client.Name</option>
+                                    }
+                                </select>
+                            </div>
+                                <span class="invalid-feedback field-validation-error" style="display: block">
+                                    <span id="Id-error" class=""></span>
+                                </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input id="SubmitBtn" type="submit" value="Submit" class="btn btn-success" />
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+        $("#SubmitBtn").click(function() {
+            if ($("#ClientId").val() === "-1") {
+                $("#Id-error").text("Client Id is required.");
+                return false;
+            } else {
+                $("#Id-error").text("");
+                return true;
+            }
+        })
+    </script>
+}

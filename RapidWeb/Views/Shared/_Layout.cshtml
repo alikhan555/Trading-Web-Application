@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link href="~/favicon.ico" rel="icon" type="image/png">
+
+    @Styles.Render("~/Content/themeStyle")
+
+    @RenderSection("Styles", required: false)
+    @RenderSection("HeadScripts", required: false)
+</head>
+<body>
+    @Html.Partial("_Sidebar")
+    <div class="main-content">
+        @Html.Partial("_Navbar")
+        @Html.Partial("_Header")
+        <!-- Page content -->
+        <div class="container mt--7 p-1">
+            <!-- Page content -->
+            @RenderBody()
+        </div>
+    </div>
+    @Scripts.Render("~/Content/themeJavaScript")
+    @RenderSection("Scripts", required: false)
+    @Scripts.Render("~/bundles/jqueryDataTable")
+
+<script type="text/javascript">
+        function PagePrint() {
+            var sideBar = $("#sidenav-main");
+
+            $("#sidenav-main").remove();
+            $(".card-header").css('display', 'none');
+            $(".card").removeClass('shadow');
+            $(".card").css('border','none');
+            $("body").css('background-color', 'white');
+            $("button").css('display', 'none');
+            $("a").css('display', 'none');
+
+            window.print();
+
+            $("a").css('display', 'inline-block');
+            $("button").css('display', 'inline-block');
+            $("body").css('background-color', 's#f8f9fe');
+            $(".card").css('border','1px solid rgba(0,0,0,.05)');
+            $(".card").addClass('shadow');
+            $(".card-header").css('display', 'block');
+            $("body").prepend(sideBar);
+        }
+    </script>
+
+</body>
+</html>

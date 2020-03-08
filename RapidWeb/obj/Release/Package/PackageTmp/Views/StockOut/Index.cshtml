@@ -1,0 +1,84 @@
+﻿@using RapidWeb.Models
+
+@{
+    ViewBag.Title = "Stock-Out List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    int roleId = ((User)HttpContext.Current.Session["User"]).RoleId;
+}
+
+
+
+<div class="col-xl-12 order-xl-1">
+    <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+                <div class="col-8">
+                    <h3 class="mb-0">@ViewBag.Title</h3>
+                </div>
+                <div class="col-4">
+                    @if (roleId != Role.RTPUser)
+                    {
+                        <a class="float-right btn btn-primary btn-sm" href="@Url.Action("NewStockOut")">New Stock-Out</a>
+                    }
+                    <a class="float-right btn btn-primary btn-sm" href="@Url.Action("StockOutDetail")">Advance Search</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <table id="Table" class="table text-align-center table-bordered table-grid">
+                <thead class="text-primary font-weight-bold">
+                    <tr>
+                        <th scope="col">Stock-Out ID</th>
+                        <th scope="col">Client ID</th>
+                        <th scope="col">Issuance Date</th>
+                        <th scope="col">Client Name</th>
+                        <th scope="col">Total Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (StockOut stockOut in Model)
+                    {
+                        <tr class="text-dark">
+                            <td style="">
+                                @stockOut.PrefixId
+                            </td>
+                            <td style="">
+                                @stockOut.Complain.Client.PrefixId
+                            </td>
+                            <td style="">
+                                @stockOut.StockIssueDateTime.ToShortDateString()
+                            </td>
+                            <td style="">
+                                @stockOut.Complain.Client.Name
+                            </td>
+                            <td style="">
+                                @(stockOut.StockOutProducts.Select(x => new { x = x.UnitPrice * x.RequiredQty }).Sum(x => x.x))
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $("#Table").dataTable();
+        });
+
+        $(".form-inline").css({
+            width: 1000
+        });
+    </script>
+}
+<style>
+    .form-inline {
+        display: block;
+    }
+</style>

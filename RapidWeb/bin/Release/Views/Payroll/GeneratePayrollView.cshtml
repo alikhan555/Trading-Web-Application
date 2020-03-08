@@ -1,0 +1,170 @@
+﻿@using System.Linq;
+@using RapidWeb.Models
+@model RapidWeb.ViewModel.PayrollGenerate
+
+@{
+    ViewBag.Title = "Payroll View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-xl-12 order-xl-1">
+    <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+                <div class="col-8">
+                    <h3 class="mb-0"></h3>
+                </div>
+                <div class="col-4">
+                    <a class="float-right btn btn-primary btn-sm" href="@Url.Action("GeneratePayrollForm")">Back To Form</a>
+                    <a class="float-right btn btn-success btn-sm" href="#" onclick="PagePrint()">Save As Pdf</a>
+                </div>
+            </div>
+        </div>
+
+        <input id="DepartmentIdFrom" type="text" value="@Model.DepartmentIdFrom" hidden />
+        <input id="DepartmentIdTo" type="text" value="@Model.DepartmentIdTo" hidden />
+        <input id="Year" value="@Model.Month.Year" hidden />
+        <input id="Month" value="@Model.Month.Month" hidden />
+
+        <div class="card-body">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="text-center">Salary Detail</h1>
+                    <table id="UsersTable" class="table text-align-center table-bordered table-grid">
+                        <thead class="text-primary font-weight-bold">
+                            <tr>
+                                <th scope="col">Emp. ID</th>
+                                <th scope="col">Emp. Name</th>
+                                <th scope="col">Emp. Dept.</th>
+                                <th scope="col">Dept. ID</th>
+                                <th scope="col">City</th>
+                                <th scope="col">Basic Salary</th>
+                                <th scope="col">Allowances</th>
+                                <th scope="col">Deductions</th>
+                                <th scope="col">Gross Salary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (EmployeeSalary employeeSalary in Model.EmployeeSalaries)
+                            {
+                                <tr class="text-dark">
+                                    <td style="">
+                                        @employeeSalary.Employee.PrefixId
+                                    </td>
+                                    <td style="">
+                                        @employeeSalary.Employee.Name
+                                    </td>
+                                    <td style="">
+                                        @employeeSalary.Payroll.Department.Name
+                                    </td>
+                                    <td style="">
+                                        @employeeSalary.Payroll.Department.PrefixId
+                                    </td>
+                                    <td style="">
+                                        @employeeSalary.Employee.City.Name
+                                    </td>
+                                    <td style="">
+                                        @employeeSalary.BasicSalary
+                                    </td>
+                                    <td style="">
+                                        @employeeSalary.TotalAllowance
+                                    </td>
+                                    <td style="">
+                                        @employeeSalary.TotalDeduction
+                                    </td>
+                                    <td style="">
+                                        @employeeSalary.TotalSalary
+                                    </td>
+                                </tr>
+                            }
+                            <tr class="text-dark">
+                                <td style="" colspan="5">
+                                    Total
+                                </td>
+                                <td style="">
+                                    @Model.EmployeeSalaries.Sum(x => x.BasicSalary)
+                                </td>
+                                <td>
+                                    @Model.EmployeeSalaries.Sum(x => x.TotalAllowance)
+                                </td>
+                                <td>
+                                    @Model.EmployeeSalaries.Sum(x => x.TotalDeduction)
+                                </td>
+                                <td>
+                                    @Model.EmployeeSalaries.Sum(x => x.TotalSalary)
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <br />
+            <br />
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="text-center">Salary Summery</h1>
+                    <table id="UsersTable" class="table text-align-center table-bordered table-grid">
+                        <thead class="text-primary font-weight-bold">
+                            <tr>
+                                <th scope="col">Department ID</th>
+                                <th scope="col">Department Name</th>
+                                <th scope="col">No. of Employees</th>
+                                <th scope="col">Gross Salary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                var groups = Model.EmployeeSalaries.GroupBy(x => x.Payroll);
+
+                                foreach (var group in groups)
+                                {
+                                    <tr class="text-dark">
+                                        <td style="">
+                                            @group.Key.Department.PrefixId
+                                        </td>
+                                        <td style="">
+                                            @group.Key.Department.Name
+                                        </td>
+                                        <td style="">
+                                            @Model.EmployeeSalaries.Count(x => x.Payroll.DepartmentId == @group.Key.DepartmentId)
+                                        </td>
+                                        <td style="">
+                                            @Model.EmployeeSalaries.Where(x => x.Payroll.DepartmentId == group.Key.DepartmentId).Sum(x => x.TotalSalary)
+                                        </td>
+                                    </tr>
+                                }
+                                <tr class="text-dark">
+                                    <td style="" colspan="2">Total</td>
+                                    <td style="">@Model.EmployeeSalaries.Count()</td>
+                                    <td style="">@Model.EmployeeSalaries.Sum(x => x.TotalSalary)</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+
+    <script type="text/javascript">
+        $("#datepicker").datepicker({
+            dateFormat: "mm/dd/yy"
+        });
+
+        $(".form-inline").css({
+            width: 1000
+        });
+    </script>
+}
+<style>
+    .form-inline {
+        display: block;
+    }
+</style>

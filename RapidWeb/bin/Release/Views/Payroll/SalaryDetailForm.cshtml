@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Salary Detail Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-xl-12 order-xl-1">
+    <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+                <div class="col-8">
+                    <h3 class="mb-0">@ViewBag.Title</h3>
+                </div>
+                <div class="col-4">
+                    <a class="float-right btn btn-primary btn-sm" href="@Url.Action("Index","Payroll")">Back</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-6 col-md-3">
+                    <div class="form-group">
+                        <label class="form-control-label" for="Month">Month</label>
+                        <input class="form-control form-control-alternative" id="Month" name="Month" type="month">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input id="SalaryDetailPdfBtn" type="submit" value="Submit" class="btn btn-success" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+        $(document).ready(function ()
+        {
+            $("#SalaryDetailPdfBtn").click(function() {
+                var month = parseInt($("#Month").val().split('-')[1]);
+                var year = parseInt($("#Month").val().split('-')[0]);
+
+                var url = "/Payroll/SalaryDetails?month=" + month + "&year=" + year;
+                window.location.href = url;
+            });
+        });
+    </script>
+}

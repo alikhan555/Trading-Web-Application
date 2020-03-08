@@ -1,0 +1,123 @@
+﻿@model RapidWeb.ViewModel.DailyExpenseViewModel
+@{
+    ViewBag.Title = "New Daily Expense";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-xl-12 order-xl-1">
+    <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+                <div class="col-8">
+                    <h3 class="mb-0">@ViewBag.Title</h3>
+                </div>
+                <div class="col-4">
+                    <a class="float-right btn btn-primary btn-sm" href="@Url.Action("Index")">Back To List</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+            @using (Html.BeginForm("Create", "DailyExpense", FormMethod.Post, new { autocomplete = "off" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.DailyExpense.ExpenseVoucherDate, new { @class = "form-control-label" })
+                            <div class="input-group input-group-alternative">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                                </div>
+                                @Html.TextBoxFor(U => U.DailyExpense.ExpenseVoucherDate, new { @class = "form-control form-control-alternative datepicker" })
+                            </div>
+                            @Html.ValidationMessageFor(U => U.DailyExpense.ExpenseVoucherDate, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.DailyExpense.EmployeeId, new { @class = "form-control-label" })
+                            @Html.DropDownListFor(U => U.DailyExpense.EmployeeId, new SelectList(Model.Employees, "Id", "PrefixId"), "Select Employee", new { @class = "form-control form-control-alternative" })
+                            @Html.ValidationMessageFor(U => U.DailyExpense.EmployeeId, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <label class="form-control-label" for="Employee_Name">Employee Name</label>
+                            <input class="form-control form-control-alternative" id="Employee_Name" disabled>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <label class="form-control-label" for="Employee_Department">Employee Department</label>
+                            <input class="form-control form-control-alternative" id="Employee_Department" disabled>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-12">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.DailyExpense.InAccountOf, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.DailyExpense.InAccountOf, new { @class = "form-control form-control-alternative" })
+                            @Html.ValidationMessageFor(U => U.DailyExpense.InAccountOf, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.DailyExpense.Amount, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.DailyExpense.Amount, new { @class = "form-control form-control-alternative" })
+                            @Html.ValidationMessageFor(U => U.DailyExpense.Amount, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Create" class="btn btn-success" />
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#DailyExpense_EmployeeId").change(function() {
+                var empId = this.value;
+
+                if (empId !== "") {
+                    $.ajax({
+                        url: "/Employee/GetEmployee/" + empId,
+                        type: "GET",
+                        success: function(emp) {
+                            $("#Employee_Name").val(emp.Name);
+                            $("#Employee_Department").val(emp.Department.Name);
+                        },
+                        error: function() {
+                            $("#Employee_Name").val("");
+                            $("#Employee_Department").val("");
+                        }
+                    });
+                } else {
+                    $("#Employee_Name").val("");
+                    $("#Employee_Department").val("");
+                }
+                
+            });
+        });
+    </script>
+}

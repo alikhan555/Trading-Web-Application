@@ -1,0 +1,95 @@
+﻿@using RapidWeb.Models
+
+@{
+    ViewBag.Title = "Employee List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    int roleId = ((User)HttpContext.Current.Session["User"]).RoleId;
+}
+
+<div class="col-xl-12 order-xl-1">
+    <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+                <div class="col-4">
+                    <h3 class="mb-0">@ViewBag.Title</h3>
+                </div>
+                <div class="col-8">
+                    <a class="float-right btn btn-primary btn-sm" href="@Url.Action("Create")">New Employee</a>
+                    <a class="float-right btn btn-primary btn-sm" href="@Url.Action("AdvanceSearch")">Advance Search</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <table id="Table" class="table text-align-center table-bordered table-grid">
+                <thead class="text-primary font-weight-bold">
+                    <tr>
+                        <th scope="col">Emp ID</th>
+                        <th scope="col">Emp Name</th>
+                        <th scope="col">Emp Department</th>
+                        <th scope="col">Emp Designation</th>
+                        <th scope="col">Emp Gross Salary</th>
+                        <th scope="col">Options</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Employee employee in Model)
+                    {
+                        <tr class="text-dark">
+                            <td style="">
+                                @employee.PrefixId
+                            </td>
+                            <td style="">
+                                @employee.Name
+                            </td>
+                            <td style="">
+                                @employee.Department.Name
+                            </td>
+                            <td style="">
+                                @employee.Designation
+                            </td>
+
+                            <td style="">
+                                @employee.GrossSalary
+                            </td>
+                            <td>
+                                <a href="@Url.Action("Edit", "Employee", new {id = employee.Id})" style="cursor: pointer" class="ml-2 text-primary EditUser"><i class="fa fa-pen"></i></a>
+                                <a href="@Url.Action("EmployeeDetail", "Employee", new {id = employee.Id})" style="cursor: pointer" class="ml-2 text-primary ViewUser"><i class="fa fa-eye"></i></a>
+
+                                @if (roleId != Role.RTPUser)
+                                {
+                                    <a href="@Url.Action("ChangeActiveStatus", "Employee", new {id = employee.Id})" style="cursor: pointer" class="ml-2 text-primary ChangeActiveStatusUser">
+                                        <i class='fa @(employee.IsActive ? "fa-check" : "fa-times")'></i>
+                                    </a>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script type="text/javascript">
+        $("#datepicker").datepicker({
+            dateFormat: "mm/dd/yy"
+        });
+
+        $(document).ready(function() {
+            $("#Table").dataTable();
+        });
+
+        $(".form-inline").css({
+            width: 1000
+        });
+    </script>
+}
+<style>
+    .form-inline {
+        display: block;
+    }
+</style>

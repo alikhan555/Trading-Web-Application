@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    @Html.Partial("_PageHeadElement")
+
+    @RenderSection("Styles", required: false)
+    @RenderSection("HeadScripts", required: false)
+</head>
+<body style="background-color: white">
+    <div class="main-content">
+
+        @RenderBody()
+
+    </div>
+
+    @Html.Partial("_ThemeScripts")
+
+    @RenderSection("Scripts", required: false)
+    @Scripts.Render("~/bundles/jqueryDataTable")
+
+</body>
+</html>

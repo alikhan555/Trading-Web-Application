@@ -1,0 +1,84 @@
+﻿@using RapidWeb.Models
+@{
+    ViewBag.Title = "Sale Tax Invoices List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    int roleId = ((User)HttpContext.Current.Session["User"]).RoleId;
+}
+
+<div class="col-xl-12 order-xl-1">
+    <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+                <div class="col-8">
+                    <h3 class="mb-0">@ViewBag.Title</h3>
+                </div>
+                <div class="col-4">
+                    @if (roleId != Role.RTPUser)
+                    {
+                        <a class="float-right btn btn-primary btn-sm" href="@Url.Action("SaleTexInvoiceForm")">New Sale Tax Invoice</a>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <table id="Table" class="table text-align-center table-bordered table-grid">
+                <thead class="text-primary font-weight-bold">
+                    <tr>
+                        <th scope="col">Inv#</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Ref Ticket #</th>
+                        <th scope="col">P.O. #</th>
+                        <th scope="col">Customer Name</th>
+                        <th scope="col">Option</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (SalesTaxInvoice saleTaxInvoice in Model)
+                    {
+                        <tr class="text-dark">
+                            <td style="">
+                                @saleTaxInvoice.PrefixId
+                            </td>
+                            <td style="">
+                                @saleTaxInvoice.Date.ToShortDateString()
+                            </td>
+                            <td style="">
+                                @Complain.Prefix@saleTaxInvoice.ComplainId
+                            </td>
+                            <td style="">
+                                @PurchaseOrder.Prefix@saleTaxInvoice.PurchaseOrderId
+                            </td>
+                            <td style="">
+                                @saleTaxInvoice.CustomerName
+                            </td>
+                            <td>    
+                                <a href="@Url.Action("SaleTaxInvoiceDetail", "SaleTexInvoice", new {id = saleTaxInvoice.Id})" style="cursor: pointer" class="ml-2 text-primary ViewUser"><i class="fa fa-eye"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $("#Table").dataTable();
+        });
+
+        $(".form-inline").css({
+            width: 1000
+        });
+    </script>
+}
+<style>
+    .form-inline {
+        display: block;
+    }
+</style>

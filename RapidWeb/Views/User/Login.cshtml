@@ -1,0 +1,61 @@
+﻿@model RapidWeb.Models.User
+
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_IdentityLayout.cshtml";
+}
+
+<div class="row justify-content-center">
+    <div class="col-lg-4 col-md-5">
+        <div class="card bg-secondary shadow border-0">
+            <div class="card-body px-lg-5 py-lg-5">
+                <div class="text-center text-muted mb-1">
+                    <h1>Login</h1>
+                    <br />
+                </div>
+
+                @using (@Html.BeginForm("Login", "User", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+
+                    if (!ViewData.ModelState.IsValid && ViewData.ModelState[string.Empty] != null)
+                    {
+                        foreach (var error in @ViewData.ModelState[string.Empty]?.Errors)
+                        {
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <span>@error.ErrorMessage</span>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                        }
+                    }
+
+                    <div class="form-group mb-3">
+                        <div class="input-group input-group-alternative">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                            </div>
+                            @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", @placeholder = "Username" })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "invalid-feedback", @style = "display: block" })
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group input-group-alternative">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                            </div>
+                            @Html.PasswordFor(model => model.Password, new { @class = "form-control", @placeholder = "Password" })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "invalid-feedback", @style = "display: block" })
+                    </div>
+                    <div class="text-center">
+                        <button class="btn btn-primary my-4" type="submit">Sign in</button>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>

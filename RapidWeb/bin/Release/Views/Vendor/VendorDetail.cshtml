@@ -1,0 +1,100 @@
+﻿@model RapidWeb.Models.Vendor
+@{
+    ViewBag.Title = "Vendor Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="col-xl-12 order-xl-1">
+    <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+                <div class="col-8">
+                    <h3 class="mb-0">@ViewBag.Title</h3>
+                </div>
+                <div class="col-4">
+                    <a class="float-right btn btn-primary btn-sm" href="@Url.Action("Index")">Back To List</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-6 col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.PrefixId, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.PrefixId, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-md-12">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.Name, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.Name, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                        @Html.ValidationMessageFor(U => U.Name, "", new { @class = "invalid-feedback", @style = "display:block" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-4">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.City, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.City, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.PaymentType, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.PaymentType, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.NTNNo, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.NTNNo, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.Contact, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.Contact, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.Email, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.Email, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-12">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.Address, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.Address, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <a id="SaveAsPdfBtn" class="btn btn-success" href="#" onclick="PagePrint()">Save As Pdf</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

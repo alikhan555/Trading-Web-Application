@@ -1,0 +1,98 @@
+﻿@using RapidWeb.Models
+
+@{
+    ViewBag.Title = "Packages List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    int RoleId = ((User)HttpContext.Current.Session["User"]).RoleId;
+}
+
+
+<div class="col-xl-12 order-xl-1">
+    <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+                <div class="col-8">
+                    <h3 class="mb-0">@ViewBag.Title</h3>
+                </div>
+                <div class="col-4">
+                    @if (RoleId != Role.Activity)
+                    {
+                        <a class="float-right btn btn-primary btn-sm" href="@Url.Action("Create")">New Package</a>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <table id="Table" class="table text-align-center table-bordered table-grid">
+                <thead class="text-primary font-weight-bold">
+                    <tr>
+                        <th scope="col">Package ID</th>
+                        <th scope="col">Package Type</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Job</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Options</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Package package in Model)
+                    {
+                        <tr class="text-dark">
+                            <td style="">
+                                @package.PrefixId
+                            </td>
+                            <td style="">
+                                @package.Type
+                            </td>
+                            <td style="">
+                                @package.Description
+                            </td>
+                            <td style="">
+                                @package.Job
+                            </td>
+                            <td style="">
+                                @package.Price
+                            </td>
+                            <td>
+                                @if (RoleId != Role.Activity)
+                                {
+                                    <a href="@Url.Action("Edit", "Package", new {id = package.Id})" style="cursor: pointer" class="ml-2 text-primary EditUser"><i class="fa fa-pen"></i></a>
+                                }
+
+                                @if (RoleId != Role.RTPUser && RoleId != Role.Activity)
+                                {
+                                    <a href="@Url.Action("ChangeActiveStatus", "Package", new {id = package.Id})" style="cursor: pointer" class="ml-2 text-primary ChangeActiveStatusUser">
+                                        <i class='fa @(package.IsActive ? "fa-check" : "fa-times")'></i>
+                                    </a>
+                                }
+
+                                <a href="@Url.Action("PackageDetail", "Package", new {id = package.Id})" style="cursor: pointer" class="ml-2 text-primary ViewUser"><i class="fa fa-eye"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+            $("#Table").dataTable();
+        });
+
+        $(".form-inline").css({
+            width: 1000
+        });
+    </script>
+}
+<style>
+    .form-inline {
+        display: block;
+    }
+</style>

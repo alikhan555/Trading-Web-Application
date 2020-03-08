@@ -1,0 +1,325 @@
+﻿@model RapidWeb.ViewModel.StockInViewModel
+
+@{
+    ViewBag.Title = "New Stock-In";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-xl-12 order-xl-1">
+    <div id="SectionChartDiv" class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+                <div class="col-8">
+                    <h3 class="mb-0">@ViewBag.Title</h3>
+                </div>
+                <div class="col-4 text-right">
+                    <a class="float-right btn btn-primary btn-sm" href="@Url.Action("Index")">Back To List</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-6 col-md-4">
+                    <div class="form-group">
+                        @{
+                            var PurchaseOrders = Model.PurchaseOrders.Select(x => new
+                            {
+                                x.Id,
+                                Description = x.PrefixId + " --- Vendor: " + x.Vendor.Name
+                            });
+
+                            @Html.LabelFor(U => U.StockIn.PurchaseOrderId, new { @class = "form-control-label" })
+                            @Html.DropDownListFor(U => U.StockIn.PurchaseOrderId, new SelectList(PurchaseOrders, "Id", "Description"), "Select Purchase Order", new { @class = "form-control form-control-alternative" })
+                        }
+                    </div>
+                </div>
+            </div>
+
+            @*<div class="row">
+            <div class="col-sm-6 col-md-4">
+                <div class="form-group focused">
+                    <label class="form-control-label" for="Vendor">Vendor</label>
+                    <input class="form-control form-control-alternative" disabled id="Vendor" name="Vendor" type="text">
+                </div>
+            </div>
+        </div>*@
+
+            <div class="row">
+                <div class="col-sm-6 col-md-4">
+                    <div class="form-group focused">
+                        <div class="form-group">
+                            <label class="form-control-label" for="InventoryDate">Inventory Date</label>
+                            <div class="input-group input-group-alternative">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                                </div>
+                                <input id="InventoryDate" class="form-control form-control-alternative datepicker" name="InventoryDate">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-2">
+                    <div class="form-group focused">
+                        <label class="form-control-label" for="TotalCost">Total Cost</label>
+                        <input class="form-control form-control-alternative" disabled id="TotalCost" name="TotalCost" type="text" value="0">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="table-responsive">
+                    <table id="DynamicTable" class="table align-items-center table-flush">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Product</th>
+                                <th scope="col">Remaining Qty</th>
+                                <th scope="col">Stock-In Quantity</th>
+                                <th scope="col">Cost</th>
+                                <th scope="col">Net Cost</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @*<tr>
+                            <td class="SequenceNo">
+                                <select class="form-control form-control-alternative" data-val="true" data-val-number="The field RoleId must be a number." data-val-required="The RoleId field is required." id="User_RoleId" name="User.RoleId"></select>
+                            </td>
+                            <td class="CourseId">
+                                <input type="text" id="Section-Name" class="form-control form-control-alternative">
+                            </td>
+                            <td class="CourseTitle">
+                                <input type="text" id="Section-Name" class="form-control form-control-alternative">
+                            </td>
+                            <td align="center">
+                                <button class="DeleteRow btn btn-danger btn-sm" type="button">
+                                    <span aria-hidden="true">
+                                        X
+                                    </span>
+                                </button>
+                            </td>
+                        </tr>*@
+                        </tbody>
+                        <tfoot>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+            
+            <hr />
+                
+            <div align='center'>
+                <div class="col-lg-12">
+                    <div id="AlertMessageMain" class="alert alert-success alert-dismissible fade show" style="display: none" role="alert">
+                        <span id="AlertMessage"></span>
+                        <button id="AlertMessageClose" type="button" class="close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input id="SubmitBtn" type="submit" role="button" value="Submit" class="btn btn-success">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jquery");
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            $("#StockIn_PurchaseOrderId").change(function() {
+
+                $("#DynamicTable tbody").empty();
+
+                var PONo = this.value;
+
+                if (PONo !== "") {
+                    $.ajax({
+                        url: "/purchaseOrder/GetPurchaseOrderProducts/" + PONo,
+                        type: "GET",
+                        success: function(data) {
+                            var tbody = $("#DynamicTable tbody");
+                            $.each(data,
+                                function(i, item) {
+                                    var tr = "<tr>" +
+                                        "<td class=''>" +
+                                        "<input type='text' value='" +
+                                        item.Product.Description.toString() +
+                                        "' class='productDescription form-control form-control-alternative' disabled>" +
+                                        "<input type='text' value=" +
+                                        item.Product.Id +
+                                        " class='ProductId form-control form-control-alternative' hidden>" +
+                                        "</td>" +
+                                        "<td class=''>" +
+                                        "<input type='text' value=" +
+                                        item.RemainingQty +
+                                        " class='RemainingQty form-control form-control-alternative' disabled>" +
+                                        "</td>" +
+                                        "<td class=''>" +
+                                        "<input type='text' value=" +
+                                        item.RemainingQty +
+                                        " class='OrderQty form-control form-control-alternative'>" +
+                                        "</td>" +
+                                        "<td class=''>" +
+                                        "<input type='text' value=" +
+                                        item.UnitPrice +
+                                        " class='ProductCost form-control form-control-alternative'>" +
+                                        "</td>" +
+                                        "<td class=''>" +
+                                        "<input type='text' class='ProductTotalCost form-control form-control-alternative' value='0' disabled>" +
+                                        "</td>" +
+                                        "<td align='center'>" +
+                                        "</td>" +
+                                        "</tr>";
+                                    tbody.append(tr);
+                                });
+                            calculateAll();
+                        },
+                        error: function() {
+
+                        }
+                    });
+                }
+            });
+
+            $("#SubmitBtn").click(function() {
+                var Products = [];
+
+                var IsCorrect = true;
+
+                $('#DynamicTable tbody tr').each(function() {
+                    var prod = {};
+
+                    prod.ProductId = $(this).find('td .ProductId').val();
+                    prod.RequiredQty = $(this).find('td .OrderQty').val();
+                    prod.UnitPrice = $(this).find('td .ProductCost').val();
+
+                    var remainingQty = $(this).find('td .RemainingQty');
+                    var orderQty = $(this).find('td .OrderQty');
+                    var productCost = $(this).find('td .ProductCost');
+
+                    if (orderQty.val() === "" ||
+                        parseInt(orderQty.val()) < 0 ||
+                        parseInt(orderQty.val()) > parseInt(remainingQty.val())) {
+                        orderQty.css('border', 'red solid 2px');
+
+                        IsCorrect = false;
+                    } else {
+                        orderQty.css('border', 'none');
+                    }
+
+                    if (productCost.val() === "" || parseInt(productCost.val()) < 0) {
+                        productCost.css('border', 'red solid 2px');
+
+                        IsCorrect = false;
+                    } else {
+                        productCost.css('border', 'none');
+                    }
+
+                    Products.push(prod);
+                });
+
+                var purchaseRequest = {
+                    PurchaseOrderId: $("#StockIn_PurchaseOrderId").val(),
+                    InventoryDate: $("#InventoryDate").val(),
+
+                    StockInProducts: Products,
+                };
+
+                if (IsCorrect) {
+                    $("#AlertMessage").text("Loading.");
+                    $("#AlertMessageMain").addClass("alert-warning");
+                    $("#AlertMessageMain").removeClass("alert-danger alert-success");
+                    $("#AlertMessageMain").css("display", "block");
+
+                    $.ajax({
+                        url: "/StockIn/StockInFormSave/",
+                        type: "POST",
+                        data: JSON.stringify(purchaseRequest),
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function(response) {
+
+                            $("#AlertMessage").text("Success.");
+                            $("#AlertMessageMain").addClass("alert-success");
+                            $("#AlertMessageMain").removeClass("alert-danger alert-warning");
+
+                            resetForm();
+                        },
+                        error: function(request, error) {
+
+                            $("#AlertMessage").text("You have filled an invalid data, or you must have not filled every textbox.");
+                            $("#AlertMessageMain").addClass("alert-danger");
+                            $("#AlertMessageMain").removeClass("alert-success alert-warning");
+                        }
+                    });
+                }
+            });
+
+            $("#AlertMessageClose").click(function() {
+                $("#AlertMessageMain").css("display", "none");
+            });
+
+            // total calculate code
+            $("#DynamicTable").on("keyup",
+                ".OrderQty, .ProductCost",
+                function() {
+                    var changedTr = $(this).parent().parent();
+                    calculateTrTotal(changedTr);
+                });
+
+            function calculateTrTotal(changedTr) {
+                var trQty = changedTr.find(".OrderQty")[0].value;
+                var trCost = changedTr.find(".ProductCost")[0].value;
+                changedTr.find(".ProductTotalCost")[0].value = parseInt(trQty) * parseFloat(trCost);
+
+                calculateTableCost();
+            }
+
+            function calculateTableCost() {
+                var total = .0;
+                $('#DynamicTable tbody tr').each(function() {
+                    total += parseFloat($(this).find('td .ProductTotalCost').val());
+                });
+
+                $("#TotalCost").val(total);
+                console.log(total);
+            }
+
+            function calculateAll() {
+                $('#DynamicTable tbody tr').each(function () {
+                    $(this).find('td .ProductTotalCost').val(parseFloat($(this).find('td .ProductCost').val()) * parseFloat($(this).find('td .OrderQty').val()));
+                });
+                calculateTableCost();
+            }
+
+            $("#DynamicTable").on("change",
+                ".productDropDown",
+                function() {
+                    var productDrop = $(this);
+                    var productId = productDrop.val();
+                    var product = productsList.filter(x => { return x.Id == productId })[0];
+                    var productCost = product.Cost;
+                    var tr = productDrop.parent().parent();
+                    var costInput = tr.find(".ProductCost")[0];
+                    costInput.value = productCost;
+                    calculateTrTotal(tr);
+                });
+
+            function resetForm() {
+                $("#DynamicTable tbody").empty();
+                $("#StockIn_PurchaseOrderId").val("");
+                $("#InventoryDate").val("");
+            }
+        });
+    </script>
+}

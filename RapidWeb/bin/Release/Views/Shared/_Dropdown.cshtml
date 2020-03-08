@@ -1,0 +1,22 @@
+﻿
+<div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
+
+    @if (Session["User"] != null)
+    {
+        <a href="@Url.Action("ChangePassword","User")" class="dropdown-item">
+            <i class="ni ni-settings-gear-65"></i>
+            <span class="logout">Change Password</span>
+        </a>
+        <a href="@Url.Action("Logout","User")" class="dropdown-item">
+            <i class="ni ni-user-run"></i>
+            <span class="logout">Logout</span>
+        </a>
+    }
+    else
+    {
+        <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Login">
+            <i class="ni ni-single-02"></i>
+            <span>Login</span>
+        </a>
+    }
+</div>

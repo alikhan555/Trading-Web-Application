@@ -1,0 +1,81 @@
+﻿@using RapidWeb.Models
+
+@{
+    ViewBag.Title = "Cities List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    int RoleId = ((User)HttpContext.Current.Session["User"]).RoleId;
+}
+
+<div class="col-xl-12 order-xl-1">
+    <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+                <div class="col-8">
+                    <h3 class="mb-0">@ViewBag.Title</h3>
+                </div>
+                <div class="col-4">
+                    <a class="float-right btn btn-primary btn-sm" href="@Url.Action("Create")">New Service City</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <table id="Table" class="table text-align-center table-bordered table-grid">
+                <thead class="text-primary font-weight-bold">
+                    <tr>
+                        <th scope="col">Service City ID</th>
+                        <th scope="col">Service City Name</th>
+                        <th scope="col">Service City District</th>
+                        <th scope="col">Options</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (ServiceCity serviceCity in Model)
+                    {
+                        <tr class="text-dark">
+                            <td style="">
+                                @serviceCity.PrefixId
+                            </td>
+                            <td style="">
+                                @serviceCity.Name
+                            </td>
+                            <td style="">
+                                @serviceCity.District
+                            </td>
+                            <td>
+                                <a href="@Url.Action("Edit", "ServiceCity", new {id = serviceCity.Id})" style="cursor: pointer" class="ml-2 text-primary EditUser"><i class="fa fa-pen"></i></a>
+
+                                @if (RoleId != Role.RTPUser)
+                                {
+                                    <a href="@Url.Action("ChangeActiveStatus", "ServiceCity", new {id = serviceCity.Id})" style="cursor: pointer" class="ml-2 text-primary ChangeActiveStatusUser">
+                                        <i class='fa @(serviceCity.IsActive ? "fa-check" : "fa-times")'></i>
+                                    </a>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+            $("#Table").dataTable();
+        });
+
+        $(".form-inline").css({
+            width: 1000
+        });
+    </script>
+}
+<style>
+    .form-inline {
+        display: block;
+    }
+</style>

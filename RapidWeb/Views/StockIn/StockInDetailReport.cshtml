@@ -1,0 +1,116 @@
+﻿@using RapidWeb.Models
+@model RapidWeb.ViewModel.StockDetailViewModel
+@{
+    ViewBag.Title = "Stock-In Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-xl-12 order-xl-1">
+    <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+                <div class="col-8">
+                    <h3 class="mb-0">@ViewBag.Title</h3>
+                </div>
+                <div class="col-4">
+                    <a class="float-right btn btn-primary btn-sm" href="@Url.Action("StockInDetail")">Back To Form</a>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            @Html.TextBoxFor(x => x.DateFrom, new { @hidden = true, @disabled = true })
+            @Html.TextBoxFor(x => x.DateTo, new { @hidden = true, @disabled = true })
+            @Html.TextBoxFor(x => x.ProductId, new { @hidden = true, @disabled = true })
+
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.Product.PrefixId, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.Product.PrefixId, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <label class="form-control-label">Inventory Date</label>
+                        <input class="form-control form-control-alternative"
+                               value='@(Model.DateFrom != null? ((DateTime)Model.DateFrom).ToShortDateString() : " * ") @("             TO             ") @(Model.DateTo != null? ((DateTime)Model.DateTo).ToShortDateString() : " * ")'
+                               type="text" disabled>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-12">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.Product.Description, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.Product.Description, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-2">
+                    <div class="form-group">
+                        <label class="form-control-label" for="Product_Quantity">Available Quentity</label>
+                        @Html.TextBoxFor(U => U.Product.Quantity, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-12">
+                    <table id="UsersTable" class="table text-align-center table-bordered table-grid">
+                        <thead class="text-primary font-weight-bold">
+                            <tr>
+                                <th scope="col">Purchase Date</th>
+                                <th scope="col">Qty</th>
+                                <th scope="col">Unit Price</th>
+                                <th scope="col">Net Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (StockInProduct stockInProduct in Model.Product.StockInProducts)
+                            {
+                                <tr class="text-dark">
+                                    <td style="">
+                                        @stockInProduct.StockIn.InventoryDate.ToShortDateString()
+                                    </td>
+                                    <td style="">
+                                        @stockInProduct.RequiredQty
+                                    </td>
+                                    <td style="">
+                                        @stockInProduct.UnitPrice
+                                    </td>
+                                    <td style="">
+                                        @(stockInProduct.RequiredQty * stockInProduct.UnitPrice)
+                                    </td>
+                                </tr>
+                            }
+                            <tr class="h6">
+                                <td>
+                                    TOTAL
+                                </td>
+                                <td>
+                                    @Model.Product.StockInProducts.Sum(x => x.RequiredQty)
+                                </td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <br />
+            <div class="row">
+                <div class="col-sm-6 col-md-12">
+                    <button id="SaveAsPdfBtn" onclick="PagePrint()" class="btn btn-success">Save As Pdf</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+}

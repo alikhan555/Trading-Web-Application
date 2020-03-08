@@ -1,0 +1,240 @@
+﻿@model RapidWeb.Models.Employee
+@{
+    ViewBag.Title = "Employee Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-xl-12 order-xl-1">
+    <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+                <div class="col-8">
+                </div>
+                <div class="col-4">
+                    <a class="float-right btn btn-primary btn-sm" href="@Url.Action("Index","Employee")">Back To List</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+
+            <h1 class="text-center">@ViewBag.Title</h1>
+
+            <br />
+
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.PrefixId, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.PrefixId, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.Name, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.Name, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.Guardian, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.Guardian, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.CNIC, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.CNIC, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.Address, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.Address, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.ContactMobile, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.ContactMobile, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.ContactHome, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.ContactHome, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                @*DOB*@
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.Dob, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.Dob, "{0:MM/dd/yyyy}", new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+
+                @*Gender*@
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.Gender, new { @class = "form-control-label" })
+                        @Html.DropDownListFor(U => U.Gender, new List<SelectListItem>()
+                        {
+                            new SelectListItem() {Text = "Male", Value = "Male"},
+                            new SelectListItem() {Text = "Female", Value = "Female"},
+                        }, "Select Gender", new {@disabled = "true", @class = "form-control form-control-alternative"})
+                        @Html.ValidationMessageFor(U => U.Gender, "", new { @class = "invalid-feedback", @style = "display:block" })
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.Qualification, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.Qualification, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+
+                @*Department*@
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.Department.Name, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.Department.Name, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.Designation, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.Designation, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.Experience, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.Experience, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.DateOfJoining, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.DateOfJoining, "{0:MM/dd/yyyy}", new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.Salary, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.Salary, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.City.Name, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.City.Name, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.HouseRent, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.HouseRent, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.TransportAllowance, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.TransportAllowance, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.UtilityAllowance, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.UtilityAllowance, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.BonusAllowance, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.BonusAllowance, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.OtherBenefits, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.OtherBenefits, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+
+                @*GrossSalary*@
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.GrossSalary, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.GrossSalary, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.BankAccountDetail, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.BankAccountDetail, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.Note, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.Note, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <a id="SaveAsPdfBtn" class="btn btn-success" href="#" onclick="PagePrint()">Save As Pdf</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

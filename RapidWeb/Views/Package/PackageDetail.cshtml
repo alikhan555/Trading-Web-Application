@@ -1,0 +1,89 @@
+﻿@model RapidWeb.Models.Package
+@{
+    ViewBag.Title = "Package Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-xl-12 order-xl-1">
+    <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+                <div class="col-8">
+                    <h3 class="mb-0">@ViewBag.Title</h3>
+                </div>
+                <div class="col-4">
+                    <a class="float-right btn btn-primary btn-sm" href="@Url.Action("Index")">Back To List</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-6 col-md-3">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.PrefixId, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.PrefixId, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.Type, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.Type, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.Description, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.Description, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.Job, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.Job, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.ReferenceNote, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.ReferenceNote, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.Detail, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.Detail, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.CustomizeDetail, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.CustomizeDetail, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-2">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.Price, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.Price, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

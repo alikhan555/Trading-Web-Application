@@ -1,0 +1,127 @@
+﻿@using RapidWeb.Models
+@model RapidWeb.Models.Complain
+@{
+    ViewBag.Title = "Assignment Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div id="SectionChartDiv" class="card bg-secondary shadow">
+    <div class="card-header bg-white border-0">
+        <div class="row align-items-center">
+            <div class="col-8">
+                <h3 class="mb-0">@ViewBag.Title</h3>
+            </div>
+            <div class="col-4 text-right">
+                <a class="float-right btn btn-primary btn-sm" href="@Url.Action("Index")">Back To List</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body">
+
+        <div class="row">
+            <div class="col-sm-6 col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(U => U.PrefixId, new { @class = "form-control-label" })
+                    @Html.TextBoxFor(U => U.PrefixId, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(U => U.Client.PrefixId, new { @class = "form-control-label" })
+                    @Html.TextBoxFor(U => U.Client.PrefixId, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6 col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(U => U.Client.Name, new { @class = "form-control-label" })
+                    @Html.TextBoxFor(U => U.Client.Name, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(U => U.CreationDateTime, new { @class = "form-control-label" })
+                    @Html.TextBoxFor(U => U.CreationDateTime, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6 col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(U => U.Employee.Name, new { @class = "form-control-label" })
+                    @Html.TextBoxFor(U => U.Employee.Name, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(U => U.ComplainType, new { @class = "form-control-label" })
+                    @Html.TextBoxFor(U => U.ComplainType, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6 col-md-12">
+                <div class="form-group">
+                    @Html.LabelFor(U => U.Description, new { @class = "form-control-label" })
+                    @Html.TextBoxFor(U => U.Description, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-12">
+                <div class="form-group">
+                    @Html.LabelFor(U => U.ProgressReport, new { @class = "form-control-label" })
+                    @Html.TextBoxFor(U => U.ProgressReport, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="table-responsive">
+                <table id="DynamicTable" class="table align-items-center table-flush">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Product Id</th>
+                            <th scope="col">Product Name</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Cost</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (ComplainProductsDetail product in Model.AssignmentProducts)
+                        {
+                            <tr class="text-dark">
+                                <td style="">
+                                    @product.Product.PrefixId
+                                </td>
+                                <td style="">
+                                    @product.Product.Description
+                                </td>
+                                <td style="">
+                                    @product.Qty
+                                </td>
+                                <td style="">
+                                    @product.Cost
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <a id="SaveAsPdfBtn" class="btn btn-success" href="#" onclick="PagePrint()">Save As Pdf</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

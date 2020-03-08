@@ -1,0 +1,219 @@
+﻿
+@{
+    ViewBag.Title = "Advance Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-lg-12 order-lg-1">
+    <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+                <div class="col-4">
+                    <h3 class="mb-0">@ViewBag.Title</h3>
+                </div>
+                <div class="col-8">
+                    <a class="float-right btn btn-primary btn-sm" href="@Url.Action("Index")">Back To List</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-3 col-lg-2">
+                    <div class="form-group">
+                        <p class="ct-content">Employee ID</p>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-lg-4">
+                    <div class="form-group">
+                        <div class="input-group input-group-alternative">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text prefixId">EMP</span>
+                            </div>
+                            <input class="form-control form-control-alternative" id="EmployeeIdFrom" name="EmployeeIdFrom" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2 col-lg-1 text-center">
+                    <div class="form-group">
+                        <p class="ct-content">TO</p>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-lg-4">
+                    <div class="form-group">
+                        <div class="input-group input-group-alternative">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text prefixId">EMP</span>
+                            </div>
+                            <input class="form-control form-control-alternative" id="EmployeeIdTo" name="EmployeeIdTo" type="text">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3 col-lg-2">
+                    <div class="form-group">
+                        <p class="ct-content">City ID</p>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-lg-4">
+                    <div class="form-group">
+                        <div class="input-group input-group-alternative">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text prefixId">CITY</span>
+                            </div>
+                            <input class="form-control form-control-alternative" id="CityIdFrom" name="CityIdFrom" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2 col-lg-1 text-center">
+                    <div class="form-group">
+                        <p class="ct-content">TO</p>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-lg-4">
+                    <div class="form-group">
+                        <div class="input-group input-group-alternative">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text prefixId">CITY</span>
+                            </div>
+                            <input class="form-control form-control-alternative" id="CityIdTo" name="CityIdTo" type="text">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3 col-lg-2">
+                    <div class="form-group">
+                        <p class="ct-content">Department</p>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-lg-4">
+                    <div class="form-group">
+                        <div class="input-group input-group-alternative">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text prefixId">DPT</span>
+                            </div>
+                            <input class="form-control form-control-alternative" id="DepartmentIdFrom" name="DepartmentIdFrom" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2 col-lg-1 text-center">
+                    <div class="form-group">
+                        <p class="ct-content">TO</p>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-lg-4">
+                    <div class="form-group">
+                        <div class="input-group input-group-alternative">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text prefixId">DPT</span>
+                            </div>
+                            <input class="form-control form-control-alternative" id="DepartmentIdTo" name="DepartmentIdTo" type="text">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <button id="DisplayList" type="submit" class="btn btn-success">Display</button>
+                        <button id="SaveAsPDFBtn" type="submit" class="btn btn-success" onclick="PagePrint()">Save As Pdf</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4 col-lg-12">
+                    <table id="Table" class="table text-align-center table-bordered table-grid">
+                        <thead class="text-primary font-weight-bold">
+                            <tr>
+                                <th scope="col">Emp.ID</th>
+                                <th scope="col">Emp.Name</th>
+                                <th scope="col">Emp.Department</th>
+                                <th scope="col">Emp.Designation</th>
+                                <th scope="col">Emp.Gross Salary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="text-dark">
+                                @*<td style="">
+                                        @employee.Id
+                                    </td>
+                                    <td style="">
+                                        @employee.Name
+                                    </td>
+                                    <td style="">
+                                        @employee.Department.Name
+                                    </td>
+                                    <td style="">
+                                        @employee.Designation
+                                    </td>
+                                    <td style="">
+                                        @employee.GrossSalary
+                                    </td>*@
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            
+            $("#DisplayList").click(function () {
+                var empIdFrom = $("#EmployeeIdFrom").val();
+                var empIdTo = $("#EmployeeIdTo").val();
+
+                var cityIdFrom = $("#CityIdFrom").val();
+                var cityIdTo = $("#CityIdTo").val();
+
+                var departmentIdFrom = $("#DepartmentIdFrom").val();
+                var departmentIdTo = $("#DepartmentIdTo").val();
+
+                var tableBody = $("#Table tbody");
+                tableBody.empty();
+
+                $.ajax({
+                    url: "/Employee/GetEmployees?empIdFrom=" + empIdFrom + "&empIdTo=" + empIdTo + "&cityIdFrom=" + cityIdFrom + "&cityIdTo=" + cityIdTo + "&departmentIdFrom=" + departmentIdFrom + "&departmentIdTo=" + departmentIdTo,
+                    type: "POST",
+                    success: function (data) {
+                        $.each(data,
+                            function (index, item) {
+                                var tr = "<tr>" +
+                                    "<td>" +
+                                    item.PrefixId +
+                                    "</td>" +
+                                    "<td>" +
+                                    item.Name +
+                                    "</td>" +
+                                    "<td>" +
+                                    item.Department.Name +
+                                    "</td>" +
+                                    "<td>" +
+                                    item.Designation +
+                                    "</td>" +
+                                    "<td>" +
+                                    item.GrossSalary +
+                                    "</td>" +
+                                    "</tr>";
+
+                                tableBody.append(tr);
+                            });
+                    },
+                    error() {
+
+                    }
+                });
+            });
+        });
+    </script>
+}

@@ -1,0 +1,89 @@
+﻿@using RapidWeb.Models
+
+@{
+    ViewBag.Title = "Services List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    int roleId = ((User)HttpContext.Current.Session["User"]).RoleId;
+}
+
+<div class="col-xl-12 order-xl-1">
+    <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+                <div class="col-8">
+                    <h3 class="mb-0">@ViewBag.Title</h3>
+                </div>
+                <div class="col-4">
+                    @if (roleId != Role.RTPUser && roleId != Role.Activity)
+                    {
+                        <a class="float-right btn btn-primary btn-sm" href="@Url.Action("Create")">New Service</a>
+                    }
+                    <a class="float-right btn btn-primary btn-sm" href="@Url.Action("AdvanceSearch")">Advance Search</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <table id="Table" class="table text-align-center table-bordered table-grid">
+                <thead class="text-primary font-weight-bold">
+                    <tr>
+                        <th scope="col">Service ID</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Package Type</th>
+                        <th scope="col">Options</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Service service in Model)
+                    {
+                        <tr class="text-dark">
+                            <td style="">
+                                @service.PrefixId
+                            </td>
+                            <td style="">
+                                @service.Description
+                            </td>
+                            <td style="">
+                                @service.PackageType
+                            </td>
+                            <td>
+                                @if (roleId != Role.RTPUser && roleId != Role.Activity)
+                                {
+                                    <a href="@Url.Action("Edit", "Service", new {id = service.Id})" style="cursor: pointer" class="ml-2 text-primary EditUser"><i class="fa fa-pen"></i></a>
+                                }
+
+                                @if (roleId != Role.RTPUser && roleId != Role.Activity)
+                                {
+                                    <a href="@Url.Action("ChangeActiveStatus", "Service", new {id = service.Id})" style="cursor: pointer" class="ml-2 text-primary ChangeActiveStatusUser">
+                                        <i class='fa @(service.IsActive? "fa-check" : "fa-times")'></i>
+                                    </a>
+                                }
+                                <a href="@Url.Action("ServiceDetail", "Service", new {id = service.Id})" style="cursor: pointer" class="ml-2 text-primary ViewUser"><i class="fa fa-eye"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+            $("#Table").dataTable();
+        });
+
+        $(".form-inline").css({
+            width: 1000
+        });
+    </script>
+}
+<style>
+    .form-inline {
+        display: block;
+    }
+</style>

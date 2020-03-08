@@ -1,0 +1,240 @@
+﻿
+@{
+    ViewBag.Title = "AdvanceSearch";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-xl-12 order-xl-1">
+    <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+                <div class="col-4">
+                    <h3 class="mb-0">@ViewBag.Title</h3>
+                </div>
+                <div class="col-8">
+                    <a class="float-right btn btn-primary btn-sm" href="@Url.Action("Index")">Back To List</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-2 col-md-2">
+                    <div class="form-group">
+                        <p class="ct-content">Customer ID</p>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                    <div class="form-group">
+                        <div class="input-group input-group-alternative">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text prefixId">CL</span>
+                            </div>
+                            <input class="form-control form-control-alternative" id="CustomerIdFrom" name="CustomerIdFrom" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2 col-md-1 text-center">
+                    <div class="form-group">
+                        <p class="ct-content">TO</p>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                    <div class="form-group">
+                        <div class="input-group input-group-alternative">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text prefixId">CL</span>
+                            </div>
+                            <input class="form-control form-control-alternative" id="CustomerIdTo" name="CustomerIdTo" type="text">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-2 col-md-2">
+                    <div class="form-group">
+                        <p class="ct-content">City ID</p>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                    <div class="form-group">
+                        <div class="input-group input-group-alternative">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text prefixId">CITY</span>
+                            </div>
+                            <input class="form-control form-control-alternative" id="CityIdFrom" name="CityIdFrom" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2 col-md-1 text-center">
+                    <div class="form-group">
+                        <p class="ct-content">TO</p>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                    <div class="form-group">
+                        <div class="input-group input-group-alternative">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text prefixId">CITY</span>
+                            </div>
+                            <input class="form-control form-control-alternative" id="CityIdTo" name="CityIdTo" type="text">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-2 col-md-2">
+                    <div class="form-group">
+                        <p class="ct-content">Date</p>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                    <div class="form-group">
+                        <input class="form-control form-control-alternative" id="DateFrom" name="DateFrom" type="Date">
+                    </div>
+                </div>
+                <div class="col-sm-2 col-md-1 text-center">
+                    <div class="form-group">
+                        <p class="ct-content">TO</p>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                    <div class="form-group">
+                        <input class="form-control form-control-alternative" id="DateTo" name="DateTo" type="Date">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-2 col-md-2">
+                    <div class="form-group">
+                        <p class="ct-content">Status</p>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                    <div class="form-group">
+                        <select class="form-control form-control-alternative" id="Status" name="Status" >
+                            <option>Any</option>
+                            <option value="false">Open</option>
+                            <option value="true">Closed</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4 col-md-4">
+                    <div class="form-group">
+                        <button id="DisplayList" class="btn btn-success">Display</button>
+                        <button id="SaveAsPdfBtn" class="btn btn-success" onclick="PagePrint()">Save As Pdf</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4 col-md-12">
+                    <table id="Table" class="table text-align-center table-bordered table-grid">
+                        <thead class="text-primary font-weight-bold">
+                            <tr>
+                                <th scope="col">Customer ID</th>
+                                <th scope="col">Customer Name</th>
+                                <th scope="col">Ticket No</th>
+                                <th scope="col">Assigned Technician</th>
+                                <th scope="col">Open Date</th>
+                                <th scope="col">Closing Date</th>
+                                <th scope="col">City</th>
+                                <th scope="col">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="text-dark">
+                                @*<td style="">
+                                        @employee.Id
+                                    </td>
+                                    <td style="">
+                                        @employee.Name
+                                    </td>
+                                    <td style="">
+                                        @employee.Department.Name
+                                    </td>
+                                    <td style="">
+                                        @employee.Designation
+                                    </td>
+                                    <td style="">
+                                        @employee.GrossSalary
+                                    </td>*@
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#DisplayList").click(function () {
+                var customerIdFrom = $("#CustomerIdFrom").val();
+                var customerIdTo = $("#CustomerIdTo").val();
+
+                var cityIdFrom = $("#CityIdFrom").val();
+                var cityIdTo = $("#CityIdTo").val();
+
+                var dateFrom = $("#DateFrom").val();
+                var dateTo = $("#DateTo").val();
+
+                var status = $("#Status").val();
+
+                var tableBody = $("#Table tbody");
+                tableBody.empty();
+
+                $.ajax({
+                    url: "/Complain/GetComplains?customerIdFrom=" + customerIdFrom + "&customerIdTo=" + customerIdTo + "&cityIdFrom=" + cityIdFrom + "&cityIdTo=" + cityIdTo + "&dateFrom=" + dateFrom + "&dateTo=" + dateTo + "&status=" + status,
+                    type: "POST",
+                    success: function (data) {
+                        $.each(data,
+                            function (index, item) {
+                                var tr = "<tr>" +
+                                    "<td>" +
+                                    item.Client.PrefixId +
+                                    "</td>" +
+                                    "<td>" +
+                                    item.Client.Name +
+                                    "</td>" +
+                                    "<td>" +
+                                    item.PrefixId +
+                                    "</td>" +
+                                    "<td>" +
+                                    item.Employee.Name +
+                                    "</td>" +
+                                    "<td>" +
+                                    new Date(parseInt(item.CreationDateTime.substr(6))).toLocaleDateString() +
+                                    "</td>" +
+                                    "<td>" +
+                                    (item.Status? new Date(parseInt(item.CompletionDateTime.substr(6))).toLocaleDateString() : "") +
+                                    "</td>" +
+                                    "<td>" +
+                                    item.Client.City.Name +
+                                    "</td>" +
+                                    "<td>" +
+                                    (item.Status?"Closed":"Open") +
+                                    "</td>" +
+                                    "</tr>";
+
+                                tableBody.append(tr);
+                            });
+                    },
+                    error() {
+
+                    }
+                });
+            });
+        });
+    </script>
+}

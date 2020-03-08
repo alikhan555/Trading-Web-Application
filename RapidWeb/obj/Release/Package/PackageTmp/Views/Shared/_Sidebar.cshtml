@@ -1,0 +1,204 @@
+﻿@using RapidWeb.Models
+
+<nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white" id="sidenav-main" >
+    <div class="container-fluid">
+        <!-- Toggler -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- User -->
+        <ul class="nav align-items-center d-md-none">
+
+            <li class="nav-item dropdown">
+                <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="media align-items-center">
+                        <span class="mb-0 text-sm font-weight-bold">
+                            @if (Session["User"] != null)
+                            {
+                                string userName = ((User)Session["User"]).UserName;
+                                <span>@userName</span>
+                            }
+                            else
+                            {
+                                <span>Anonymous User</span>
+                            }
+                        </span>
+                    </div>
+                </a>
+                @Html.Partial("_Dropdown")
+            </li>
+        </ul>
+        <!-- Collapse -->
+        <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+            <!-- Collapse header -->
+            <div class="navbar-collapse-header d-md-none">
+                <div class="row">
+                    <div class="col-6 collapse-brand">
+                        <a href="./index">
+                            @*<img src="~/Content/img/brand/blue.png">*@
+                        </a>
+                    </div>
+                    <div class="col-6 collapse-close">
+                        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <ul class="navbar-nav">
+
+                @{
+                    int RoleId = ((User)HttpContext.Current.Session["User"]).RoleId;
+
+                    if (RoleId == Role.SuperAdmin)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "User")">
+                                <i class="fa fa-user-edit text-primary"></i> Users
+                            </a>
+                        </li>
+                    }
+                    if (RoleId == Role.SuperAdmin || RoleId == Role.Admin)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "ServiceCity")">
+                                <i class="fas fa-city text-primary"></i> City
+                            </a>
+                        </li>
+                    }
+                    if (RoleId == Role.SuperAdmin || RoleId == Role.Admin)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "Department")">
+                                <i class="fa fa-building text-primary"></i> Department
+                            </a>
+                        </li>
+                    }
+                    if (RoleId == Role.SuperAdmin || RoleId == Role.HR)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "Employee")">
+                                <i class="fa fa-user-tie text-primary"></i> Employee
+                            </a>
+                        </li>
+                    }
+                    if (RoleId == Role.SuperAdmin || RoleId == Role.Admin || RoleId == Role.DataOperator || RoleId == Role.RTPUser || RoleId == Role.Activity)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "Client")">
+                                <i class="fa fa-user text-primary"></i> Client
+                            </a>
+                        </li>
+                    }
+                    if (RoleId == Role.SuperAdmin || RoleId == Role.Inventory || RoleId == Role.Activity)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "Vendor")">
+                                <i class="fa fa-user-tag text-primary"></i> Vendor
+                            </a>
+                        </li>
+                    }
+                    if (RoleId == Role.SuperAdmin || RoleId == Role.Admin || RoleId == Role.RTPUser || RoleId == Role.Activity)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "Service")">
+                                <i class="fab fa-steam-symbol text-primary"></i> Service
+                            </a>
+                        </li>
+                    }
+                    if (RoleId == Role.SuperAdmin || RoleId == Role.Admin || RoleId == Role.Activity)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "Package")">
+                                <i class="fa fa-box-open text-primary"></i> Package
+                            </a>
+                        </li>
+                    }
+                    if (RoleId == Role.SuperAdmin || RoleId == Role.Admin || RoleId == Role.Activity)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "Product")">
+                                <i class="fa fa-store text-primary"></i> Product
+                            </a>
+                        </li>
+                    }
+                    if (RoleId == Role.SuperAdmin || RoleId == Role.Admin || RoleId == Role.DataOperator || RoleId == Role.RTPUser || RoleId == Role.Activity)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "Complain")">
+                                <i class="fa fa-list-ul text-primary"></i> Complains
+                            </a>
+                        </li>
+                    }
+                    if (RoleId == Role.SuperAdmin || RoleId == Role.Inventory || RoleId == Role.RTPUser || RoleId == Role.Activity)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "PurchaseRequest")">
+                                <i class="fa fa-receipt text-primary"></i> Purchase Request
+                            </a>
+                        </li>
+                    }
+                    if (RoleId == Role.SuperAdmin || RoleId == Role.Inventory || RoleId == Role.RTPUser || RoleId == Role.Activity)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "PurchaseOrder")">
+                                <i class="fa fa-receipt text-primary"></i> Purchase Order
+                            </a>
+                        </li>
+                    }
+                    if (RoleId == Role.SuperAdmin || RoleId == Role.Inventory || RoleId == Role.RTPUser)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "StockIn")">
+                                <i class="fa fa-cart-arrow-down text-primary"></i> Stock-In
+                            </a>
+                        </li>
+                    }
+                    if (RoleId == Role.SuperAdmin || RoleId == Role.Inventory || RoleId == Role.RTPUser)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "StockOut")">
+                                <i class="fa fa-shopping-cart text-primary"></i> Stock-Out
+                            </a>
+                        </li>
+                    }
+                    if (RoleId == Role.SuperAdmin || RoleId == Role.Inventory || RoleId == Role.RTPUser)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "SaleTexInvoice")">
+                                <i class="fa fa-file-invoice-dollar text-primary"></i> Sale Tax Invoice
+                            </a>
+                        </li>
+                    }
+                    if (RoleId == Role.SuperAdmin || RoleId == Role.Inventory || RoleId == Role.RTPUser)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "NormalInvoice")">
+                                <i class="fas fa-file-invoice text-primary"></i> Normal Invoice
+                            </a>
+                        </li>
+                    }
+                    if (RoleId == Role.SuperAdmin || RoleId == Role.RTPUser || RoleId == Role.AccountsManager)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "DailyExpense")">
+                                <i class="fa fa-dollar-sign text-primary"></i> Daily Expense
+                            </a>
+                        </li>
+                    }
+                    if (RoleId == Role.SuperAdmin || RoleId == Role.HR || RoleId == Role.RTPUser)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "Payroll")">
+                                <i class="ni ni-money-coins text-primary"></i> Payroll
+                            </a>
+                        </li>
+                    }
+                }
+            </ul>
+        </div>
+    </div>
+</nav>

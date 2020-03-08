@@ -1,0 +1,245 @@
+
+/*Active Inactive Tabs Bootstrap*/
+.nav-link .active .show{
+    background: #ffffff!important;
+    font-weight: bold;
+}
+
+.text-primary, .nav-link:hover, a.text-primary:hover {
+    color: #3c8dbc !important;
+}
+
+/* Navbar */
+
+.bg-gradient-primary,.btn-primary {
+    background: #3c8dbc !important;
+}
+
+.collapse-brand, .collapse-brand:hover {
+    color: #3C8DBC !important;
+}
+
+.nav-link.active:before {
+    border-left: 3px solid #3c8dbc !important;
+}
+
+.btn-primary{
+    border-color:#3C8DBC!important;
+}
+
+.btn-sm {
+    margin-left: 10px;
+}
+
+/* ================================================
+                PAGINATION    Ajax Validation
+ ============================================= */
+.error-ajax, .errorAjax {
+    color: red;
+    font-size: 10.6px !important;
+}
+
+.page-item.active .page-link {
+    background: #3c8dbc !important;
+}
+
+/* ================================================
+                Forms                           
+ ============================================= */
+
+/* bootstrap button flat no radius */
+.form-btn {
+    border-radius: 0px !important;
+}
+
+
+
+.form-input {
+    height: 30px;
+    font-size: 10px;
+    padding: 6px 12px;
+    width: 100%;
+    color: #555;
+    line-height: 1.42857143;
+    display: block;
+    border: 1px solid #ccc;
+    background: #fff;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+.form-control-label {
+    font-size: 0.75rem !important;
+}
+
+.form-input:focus {
+    border: 0.1px solid #3c8dbc;
+}
+
+/* Tables Starts Here */
+
+.table-grid tbody tr td {
+    padding: 7px 20px !important;
+}
+
+.table-grid tbody tr:nth-child(odd) {
+    background: #f3f4f5;
+}
+
+.table-bordered {
+    border: none !important;
+}
+
+.form-control {
+    font-size: 10px !important;
+    height: 3.55em !important;
+}
+
+span.invalid-feedback {
+    font-size: 0.60rem !important;
+}
+
+/*.form-control-alternative{*/
+/*    height: 3em!important;*/
+/*}*/
+
+
+/* Forms */
+
+.form-control {
+    padding: 1px 9px !important;
+}
+
+/* Rack Reports */
+.rack-input {
+    font-size: 0.70rem;
+}
+
+.rack-input input {
+    height: 30px;
+}
+
+.rack-input select {
+    height: 30px;
+}
+
+
+/*===================================================
+            Show Users
+=====================================================*/
+.show-label {
+    font-size: 0.78rem !important;
+}
+
+.show-text {
+    font-size: 0.72rem !important;
+}
+
+/* ======================================================
+                Delivery Styles                         
+======================================================= */
+
+.slim-input {
+    padding: 0px 10px;
+    border-radius: 0px !important;
+    color: #555;
+    width: 200px;
+    height: 30px;
+}
+
+#datepicker {
+    width: 100px !important;
+    height: 30px !important;
+    color: #555 !important;
+}
+
+
+#date_to {
+    width: 100px !important;
+    height: 30px !important;
+    color: #555 !important;
+}
+
+
+.tickets {
+    overflow-x: scroll;
+    border-collapse: collapse;
+}
+
+.tickets tr td {
+    width: 150px !important;
+}
+
+.tickets tr td,
+.tickets tr {
+    padding: 0 !important;
+}
+
+.ticket-input {
+    padding: 0;
+    margin: 1.5px;
+    width: 150px;
+    color: gray;
+    font-style: italic;
+    font-size: small;
+    border: 0.5px solid #4790bb;
+}
+
+.tickets tr td input:focus,
+.ticket-info input:focus {
+    border: 1.2px solid #ccc;
+}
+
+.ticket-label {
+    font-size: small;
+}
+
+.ticket-info input,
+.ticket-info select {
+    padding: 2px;
+    font-size: 12px;
+    margin-left: 10px;
+    width: 150px;
+    outline: none;
+    border: 0.8px solid #ccc;
+}
+
+.form-error {
+    display: none !important;
+}
+
+/* Date time picker styles */
+
+.gj-datepicker-bootstrap [role="right-icon"] button {
+    width: 40px !important;
+    height: 30px !important;
+    position: relative !important;
+    border: 1.4px solid #ccc !important;
+}
+
+.gj-datepicker-bootstrap [role="right-icon"] button .gj-icon,
+.gj-datepicker-bootstrap [role="right-icon"] button .material-icons {
+    position: absolute;
+    font-size: 21px !important;
+    top: 5px !important;
+    left: 9px !important;
+}
+
+.gj-icon {
+    color: gray !important;
+}
+
+/* Date time picker styles ends here*/
+
+.prefixId {
+    font-size: 0.66em;
+    padding-right: 0.1rem;
+}
+
+
+/* ======================================================
+                    Page                         
+======================================================= */
+
+.container {
+    max-width: 2200px;
+}

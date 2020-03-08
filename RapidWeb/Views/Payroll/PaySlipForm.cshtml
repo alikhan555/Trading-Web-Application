@@ -1,0 +1,127 @@
+﻿@using RapidWeb.Models
+
+@{
+    ViewBag.Title = "Generate Pay Slip";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-xl-12 order-xl-1">
+    <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+                <div class="col-8">
+                    <h3 class="mb-0">@ViewBag.Title</h3>
+                </div>
+                <div class="col-4">
+                    <a class="float-right btn btn-primary btn-sm" href="@Url.Action("Index","Payroll")">Back</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-2 col-md-2">
+                    <div class="form-group">
+                        <p class="ct-content">Employee ID</p>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                    <div class="form-group">
+                        <div class="input-group input-group-alternative">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text prefixId">@Employee.Prefix</span>
+                            </div>
+                            <input class="form-control form-control-alternative" id="EmployeeIdFrom" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2 col-md-1 text-center">
+                    <div class="form-group">
+                        <p class="ct-content">TO</p>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                    <div class="form-group">
+                        <div class="input-group input-group-alternative">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text prefixId">@Employee.Prefix</span>
+                            </div>
+                            <input class="form-control form-control-alternative" id="EmployeeIdTo" type="text">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-2 col-md-2">
+                    <div class="form-group">
+                        <p class="ct-content">Department ID</p>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                    <div class="form-group">
+                        <div class="input-group input-group-alternative">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text prefixId">@Department.Prefix</span>
+                            </div>
+                            <input class="form-control form-control-alternative" id="DepartmentIdFrom" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2 col-md-1 text-center">
+                    <div class="form-group">
+                        <p class="ct-content">TO</p>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                    <div class="form-group">
+                        <div class="input-group input-group-alternative">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text prefixId">@Department.Prefix</span>
+                            </div>
+                            <input class="form-control form-control-alternative" id="DepartmentIdTo" type="text">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-6 col-md-3">
+                    <div class="form-group">
+                        <label class="form-control-label" for="MonthYear">Month</label>
+                        <input class="form-control form-control-alternative" id="Month" name="Month" type="month">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input id="GeneratePaySlipsBtn" type="submit" value="Generate Pay Slips" class="btn btn-success" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#GeneratePaySlipsBtn").click(function () {
+
+                var departmentIdFrom = $("#DepartmentIdFrom").val();
+                var departmentIdTo = $("#DepartmentIdTo").val();
+                var employeeIdFrom = $("#EmployeeIdFrom").val();
+                var employeeIdTo = $("#EmployeeIdTo").val();
+                var month = parseInt($("#Month").val().split('-')[1]);
+                var year = parseInt($("#Month").val().split('-')[0]);
+
+                var url = "/Payroll/PaySlipsView?departmentIdFrom=" + departmentIdFrom + "&departmentIdTo=" + departmentIdTo + "&employeeIdFrom=" + employeeIdFrom + "&employeeIdTo=" + employeeIdTo + "&month=" + month + "&year=" + year;
+                window.location.href = url;
+            });
+        });
+    </script>
+}

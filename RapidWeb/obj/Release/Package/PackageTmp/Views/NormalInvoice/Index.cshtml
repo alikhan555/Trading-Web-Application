@@ -1,0 +1,85 @@
+﻿@using RapidWeb.Models
+
+@{
+    ViewBag.Title = "Normal Invoice";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    int roleId = ((User)HttpContext.Current.Session["User"]).RoleId;
+}
+
+<div class="col-xl-12 order-xl-1">
+    <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+                <div class="col-8">
+                    <h3 class="mb-0">@ViewBag.Title</h3>
+                </div>
+                <div class="col-4">
+                    @if (roleId != Role.RTPUser)
+                    {
+                        <a class="float-right btn btn-primary btn-sm" href="@Url.Action("NormalInvoiceForm")">New Normal Invoice</a>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <table id="Table" class="table text-align-center table-bordered table-grid">
+                <thead class="text-primary font-weight-bold">
+                    <tr>
+                        <th scope="col">Inv#</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Ref Ticket #</th>
+                        <th scope="col">P.O. #</th>
+                        <th scope="col">Customer Name</th>
+                        <th scope="col">Option</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (NormalInvoice normalInvoice in Model)
+                    {
+                        <tr class="text-dark">
+                            <td style="">
+                                @normalInvoice.PrefixId
+                            </td>
+                            <td style="">
+                                @normalInvoice.Date.ToShortDateString()
+                            </td>
+                            <td style="">
+                                @Complain.Prefix@normalInvoice.ComplainId
+                            </td>
+                            <td style="">
+                                @PurchaseOrder.Prefix@normalInvoice.PurchaseOrderId
+                            </td>
+                            <td style="">
+                                @normalInvoice.CustomerName
+                            </td>
+                            <td>
+                                <a href="@Url.Action("NormalInvoiceDetail", "NormalInvoice", new {id = normalInvoice.Id})" style="cursor: pointer" class="ml-2 text-primary ViewUser"><i class="fa fa-eye"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $("#Table").dataTable();
+        });
+
+        $(".form-inline").css({
+            width: 1000
+        });
+    </script>
+}
+<style>
+    .form-inline {
+        display: block;
+    }
+</style>

@@ -1,0 +1,89 @@
+﻿@using RapidWeb.Models
+@model RapidWeb.Models.DailyExpense
+@{
+    ViewBag.Title = "Daily Expense Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-xl-12 order-xl-1">
+    <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+                <div class="col-8">
+                    <h3 class="mb-0">@ViewBag.Title</h3>
+                </div>
+                <div class="col-4">
+                    <a class="float-right btn btn-primary btn-sm" href="@Url.Action("Index")">Back To List</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-6 col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.PrefixId, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.PrefixId, new { @disabled = true, @class = "form-control form-control-alternative" })
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.ExpenseVoucherDate, new { @class = "form-control-label" })
+                            <input class="form-control form-control-alternative" value="@(Model.ExpenseVoucherDate.ToShortDateString())" disabled>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.EmployeeId, new { @class = "form-control-label" })
+                            <input class="form-control form-control-alternative" value="@(Employee.Prefix+Model.EmployeeId)" disabled>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <label class="form-control-label" for="Employee_Name">Employee Name</label>
+                            <input class="form-control form-control-alternative" id="Employee_Name" value="@(Model.Employee.Name)" disabled>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <label class="form-control-label" for="Employee_Department">Employee Department</label>
+                            <input class="form-control form-control-alternative" id="Employee_Department" value="@(Model.Employee.Department.Name)" disabled>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-12">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.InAccountOf, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.InAccountOf, new { @disabled = true, @class = "form-control form-control-alternative" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Amount, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.Amount, new { @disabled = true, @class = "form-control form-control-alternative" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <a class="btn btn-success" href="#" onclick="PagePrint()">Save As Pdf</a>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

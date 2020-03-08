@@ -1,0 +1,105 @@
+﻿@using RapidWeb.Models
+@model IEnumerable<RapidWeb.Models.Complain>
+@{
+    ViewBag.Title = "Complains List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    int roleId = ((User)HttpContext.Current.Session["User"]).RoleId;
+}
+
+
+
+<div class="col-xl-12 order-xl-1">
+    <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+                <div class="col-8">
+                    <h3 class="mb-0">@ViewBag.Title</h3>
+                </div>
+                <div class="col-4">
+                    @if (roleId != Role.RTPUser && roleId != Role.Activity)
+                    {
+                        <a class="float-right btn btn-primary btn-sm" href="@Url.Action("NewComplain")">New Complain</a>
+                    }
+                    <a class="float-right btn btn-primary btn-sm" href="@Url.Action("AdvanceSearch")">Advance Search</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <table id="Table" class="table text-align-center table-bordered table-grid">
+                <thead class="text-primary font-weight-bold">
+                    <tr>
+                        <th scope="col">Customer ID</th>
+                        <th scope="col">Customer Name</th>
+                        <th scope="col">Complain ID</th>
+                        <th scope="col">Assigned Technician</th>
+                        <th scope="col">Ticket Date</th>
+                        <th scope="col">City</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Options</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Complain complain in Model)
+                    {
+                        <tr class="text-dark">
+                            <td style="">
+                                @complain.Client.PrefixId
+                            </td>
+                            <td style="">
+                                @complain.Client.Name
+                            </td>
+                            <td style="">
+                                @complain.PrefixId
+                            </td>
+                            <td style="">
+                                @complain.Employee.Name
+                            </td>
+                            <td style="">
+                                @complain.CreationDateTime.ToShortDateString()
+                            </td>
+                            <td style="">
+                                @complain.Client.City.Name
+                            </td>
+                            <td style="">
+                                @(complain.Status ? "Closed" : "Open")
+                            </td>
+                            <td>
+                                <a href="@Url.Action("Detail", "Complain", new {id = complain.Id})" style="cursor: pointer" class="ml-2 text-primary ViewUser"><i class="fa fa-eye"></i></a>
+                                
+                                @if (roleId != Role.RTPUser && roleId != Role.Activity)
+                                {
+                                    if (complain.Status == false)
+                                     {
+                                         <a href="@Url.Action("ComplainAssignment", "Complain", new {id = complain.Id})" style="cursor: pointer" class="ml-2 text-primary EditUser"><i class="ni ni-send"></i></a>
+                                     }
+                                }
+
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+            $("#Table").dataTable();
+        });
+
+        $(".form-inline").css({
+            width: 1000
+        });
+    </script>
+}
+<style>
+    .form-inline {
+        display: block;
+    }
+</style>

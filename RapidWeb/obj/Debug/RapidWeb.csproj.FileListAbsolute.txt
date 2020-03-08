@@ -1,0 +1,350 @@
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\RapidWeb.dll.config
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\RapidWeb.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\RapidWeb.pdb
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\roslyn\csc.exe
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\roslyn\csc.exe.config
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\roslyn\csc.rsp
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\roslyn\csi.exe
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\roslyn\csi.exe.config
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\roslyn\csi.rsp
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\roslyn\Microsoft.CodeAnalysis.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\roslyn\Microsoft.CSharp.Core.targets
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\roslyn\Microsoft.Managed.Core.targets
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\roslyn\Microsoft.VisualBasic.Core.targets
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\roslyn\System.AppContext.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\roslyn\System.Collections.Immutable.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\roslyn\System.Console.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\roslyn\System.Diagnostics.StackTrace.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\roslyn\System.IO.Compression.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\roslyn\System.IO.FileSystem.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\roslyn\System.IO.FileSystem.Primitives.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\roslyn\System.IO.Pipes.AccessControl.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\roslyn\System.IO.Pipes.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\roslyn\System.Reflection.Metadata.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\roslyn\System.Security.AccessControl.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\roslyn\System.Security.Claims.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\roslyn\System.Security.Cryptography.Encoding.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\roslyn\System.Security.Cryptography.Primitives.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\roslyn\System.Security.Principal.Windows.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\roslyn\System.Text.Encoding.CodePages.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\roslyn\System.ValueTuple.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\roslyn\System.Xml.ReaderWriter.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\roslyn\System.Xml.XmlDocument.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\roslyn\System.Xml.XPath.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\roslyn\System.Xml.XPath.XDocument.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\roslyn\vbc.exe
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\roslyn\vbc.exe.config
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\roslyn\vbc.rsp
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\roslyn\VBCSCompiler.exe
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\roslyn\VBCSCompiler.exe.config
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\Antlr3.Runtime.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\BouncyCastle.Crypto.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\Common.Logging.Core.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\Common.Logging.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\CrystalDecisions.CrystalReports.Engine.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\CrystalDecisions.ReportSource.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\CrystalDecisions.Shared.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\EntityFramework.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\EntityFramework.SqlServer.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\Microsoft.Web.Infrastructure.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\Newtonsoft.Json.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\System.Web.Helpers.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\System.Web.Mvc.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\System.Web.Optimization.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\System.Web.Razor.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\System.Web.WebPages.Deployment.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\System.Web.WebPages.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\System.Web.WebPages.Razor.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\WebGrease.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\CrystalDecisions.ReportAppServer.DataDefModel.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\CrystalDecisions.ReportAppServer.ClientDoc.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\CrystalDecisions.ReportAppServer.Controllers.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\CrystalDecisions.ReportAppServer.CommLayer.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\CrystalDecisions.ReportAppServer.Prompting.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\CrystalDecisions.ReportAppServer.CommonControls.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\stdole.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\BouncyCastle.Crypto.xml
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\Common.Logging.pdb
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\Common.Logging.xml
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\Common.Logging.Core.pdb
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\Common.Logging.Core.xml
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\EntityFramework.xml
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\EntityFramework.SqlServer.xml
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\System.Web.Helpers.xml
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\System.Web.Mvc.xml
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\System.Web.Optimization.xml
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\System.Web.Razor.xml
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\System.Web.WebPages.xml
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\System.Web.WebPages.Deployment.xml
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\System.Web.WebPages.Razor.xml
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\Newtonsoft.Json.xml
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\Antlr3.Runtime.pdb
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\obj\Debug\RapidWeb.csprojAssemblyReference.cache
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.InitialModel.resources
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.AddUserTable.resources
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.AddRoleTable.resources
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.AddRelationUserWithRole.resources
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.SeedRoles.resources
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.AddDepartmentTable.resources
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.AddServiceCityTable.resources
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.AddEmployeeTable.resources
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.AddRelationEmployeeWithServiceCity.resources
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.AddRelationEmployeeWithDepartments.resources
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.RemoveColumnEmailFromEmployeeTable.resources
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.AddDesignationColumnInEmployee.resources
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.modifyLengthofDesignationEmployee.resources
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.AddClientsTable.resources
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.ChangeDtypeOfClientColumn.resources
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.RemoveCityRelationWithClient.resources
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.AddRelationClientWithCity.resources
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.AddVendorsTable.resources
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.AddPaymentTypeInVendorsTable.resources
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.AddServicesTable.resources
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.AddPackagesTable.resources
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\obj\Debug\RapidWeb.csproj.GenerateResource.cache
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\obj\Debug\RapidWeb.csproj.CoreCompileInputs.cache
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\obj\Debug\RapidWeb.csproj.CopyComplete
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\obj\Debug\RapidWeb.dll
+G:\Project\11 18 2019    1018\RapidWeb\RapidWeb\obj\Debug\RapidWeb.pdb
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\RapidWeb.dll.config
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\RapidWeb.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\RapidWeb.pdb
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\roslyn\csc.exe
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\roslyn\csc.exe.config
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\roslyn\csc.rsp
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\roslyn\csi.exe
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\roslyn\csi.exe.config
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\roslyn\csi.rsp
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\roslyn\Microsoft.CodeAnalysis.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\roslyn\Microsoft.CSharp.Core.targets
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\roslyn\Microsoft.Managed.Core.targets
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\roslyn\Microsoft.VisualBasic.Core.targets
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\roslyn\System.AppContext.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\roslyn\System.Collections.Immutable.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\roslyn\System.Console.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\roslyn\System.Diagnostics.StackTrace.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\roslyn\System.IO.Compression.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\roslyn\System.IO.FileSystem.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\roslyn\System.IO.FileSystem.Primitives.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\roslyn\System.IO.Pipes.AccessControl.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\roslyn\System.IO.Pipes.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\roslyn\System.Reflection.Metadata.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\roslyn\System.Security.AccessControl.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\roslyn\System.Security.Claims.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\roslyn\System.Security.Cryptography.Encoding.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\roslyn\System.Security.Cryptography.Primitives.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\roslyn\System.Security.Principal.Windows.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\roslyn\System.Text.Encoding.CodePages.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\roslyn\System.ValueTuple.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\roslyn\System.Xml.ReaderWriter.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\roslyn\System.Xml.XmlDocument.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\roslyn\System.Xml.XPath.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\roslyn\System.Xml.XPath.XDocument.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\roslyn\vbc.exe
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\roslyn\vbc.exe.config
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\roslyn\vbc.rsp
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\roslyn\VBCSCompiler.exe
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\roslyn\VBCSCompiler.exe.config
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\Antlr3.Runtime.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\BouncyCastle.Crypto.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\Common.Logging.Core.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\Common.Logging.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\EntityFramework.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\EntityFramework.SqlServer.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\Microsoft.Web.Infrastructure.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\MySql.Data.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\mysql.data.entity.EF6.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\Newtonsoft.Json.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\System.Web.Helpers.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\System.Web.Mvc.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\System.Web.Optimization.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\System.Web.Razor.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\System.Web.WebPages.Deployment.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\System.Web.WebPages.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\System.Web.WebPages.Razor.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\WebGrease.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\BouncyCastle.Crypto.xml
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\Common.Logging.pdb
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\Common.Logging.xml
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\Common.Logging.Core.pdb
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\Common.Logging.Core.xml
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\EntityFramework.xml
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\EntityFramework.SqlServer.xml
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\MySql.Data.xml
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\System.Web.Helpers.xml
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\System.Web.Mvc.xml
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\System.Web.Optimization.xml
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\System.Web.Razor.xml
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\System.Web.WebPages.xml
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\System.Web.WebPages.Deployment.xml
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\System.Web.WebPages.Razor.xml
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\Newtonsoft.Json.xml
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\Antlr3.Runtime.pdb
+G:\Document\Desktop\RapidWeb\RapidWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+G:\Document\Desktop\RapidWeb\RapidWeb\obj\Debug\RapidWeb.csprojAssemblyReference.cache
+G:\Document\Desktop\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.InitialAndTest.resources
+G:\Document\Desktop\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.AddTablesUptoUsers.resources
+G:\Document\Desktop\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.AddTablesUptoEmployees.resources
+G:\Document\Desktop\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.AddTablesUptoClients.resources
+G:\Document\Desktop\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.AddTablesUptoProducts.resources
+G:\Document\Desktop\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.AddTablesUptoComplainProductsDetails.resources
+G:\Document\Desktop\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.AddTablesUptoPurchaseRequestProducts.resources
+G:\Document\Desktop\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.AddTablesUptoPurchaseOrderProducts.resources
+G:\Document\Desktop\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.AddTablesUptoStockInProducts.resources
+G:\Document\Desktop\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.AddTablesUptoStockOutProducts.resources
+G:\Document\Desktop\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.AddTablesUptoSaleTexInvoiceProducts.resources
+G:\Document\Desktop\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.AddTablesUptoNormalInvoiceProducts.resources
+G:\Document\Desktop\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.AddTablesUptoEmployeeSalaries.resources
+G:\Document\Desktop\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.AddTablesUptoDailyExpenses.resources
+G:\Document\Desktop\RapidWeb\RapidWeb\obj\Debug\RapidWeb.csproj.GenerateResource.cache
+G:\Document\Desktop\RapidWeb\RapidWeb\obj\Debug\RapidWeb.csproj.CoreCompileInputs.cache
+G:\Document\Desktop\RapidWeb\RapidWeb\obj\Debug\RapidWeb.csproj.CopyComplete
+G:\Document\Desktop\RapidWeb\RapidWeb\obj\Debug\RapidWeb.dll
+G:\Document\Desktop\RapidWeb\RapidWeb\obj\Debug\RapidWeb.pdb
+G:\Document\Desktop\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.SeedRoles.resources
+G:\Document\Desktop\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.SeedMasterUser.resources
+G:\Project\RapidWeb\RapidWeb\bin\roslyn\csc.exe
+G:\Project\RapidWeb\RapidWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+G:\Project\RapidWeb\RapidWeb\bin\roslyn\Microsoft.CodeAnalysis.dll
+G:\Project\RapidWeb\RapidWeb\bin\roslyn\System.Collections.Immutable.dll
+G:\Project\RapidWeb\RapidWeb\bin\RapidWeb.dll.config
+G:\Project\RapidWeb\RapidWeb\bin\RapidWeb.dll
+G:\Project\RapidWeb\RapidWeb\bin\RapidWeb.pdb
+G:\Project\RapidWeb\RapidWeb\bin\roslyn\csc.exe.config
+G:\Project\RapidWeb\RapidWeb\bin\roslyn\csc.rsp
+G:\Project\RapidWeb\RapidWeb\bin\roslyn\csi.exe
+G:\Project\RapidWeb\RapidWeb\bin\roslyn\csi.exe.config
+G:\Project\RapidWeb\RapidWeb\bin\roslyn\csi.rsp
+G:\Project\RapidWeb\RapidWeb\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+G:\Project\RapidWeb\RapidWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+G:\Project\RapidWeb\RapidWeb\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+G:\Project\RapidWeb\RapidWeb\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+G:\Project\RapidWeb\RapidWeb\bin\roslyn\Microsoft.CSharp.Core.targets
+G:\Project\RapidWeb\RapidWeb\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+G:\Project\RapidWeb\RapidWeb\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+G:\Project\RapidWeb\RapidWeb\bin\roslyn\Microsoft.Managed.Core.targets
+G:\Project\RapidWeb\RapidWeb\bin\roslyn\Microsoft.VisualBasic.Core.targets
+G:\Project\RapidWeb\RapidWeb\bin\roslyn\System.AppContext.dll
+G:\Project\RapidWeb\RapidWeb\bin\roslyn\System.Console.dll
+G:\Project\RapidWeb\RapidWeb\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+G:\Project\RapidWeb\RapidWeb\bin\roslyn\System.Diagnostics.StackTrace.dll
+G:\Project\RapidWeb\RapidWeb\bin\roslyn\System.IO.Compression.dll
+G:\Project\RapidWeb\RapidWeb\bin\roslyn\System.IO.FileSystem.dll
+G:\Project\RapidWeb\RapidWeb\bin\roslyn\System.IO.FileSystem.Primitives.dll
+G:\Project\RapidWeb\RapidWeb\bin\roslyn\System.IO.Pipes.AccessControl.dll
+G:\Project\RapidWeb\RapidWeb\bin\roslyn\System.IO.Pipes.dll
+G:\Project\RapidWeb\RapidWeb\bin\roslyn\System.Reflection.Metadata.dll
+G:\Project\RapidWeb\RapidWeb\bin\roslyn\System.Security.AccessControl.dll
+G:\Project\RapidWeb\RapidWeb\bin\roslyn\System.Security.Claims.dll
+G:\Project\RapidWeb\RapidWeb\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+G:\Project\RapidWeb\RapidWeb\bin\roslyn\System.Security.Cryptography.Encoding.dll
+G:\Project\RapidWeb\RapidWeb\bin\roslyn\System.Security.Cryptography.Primitives.dll
+G:\Project\RapidWeb\RapidWeb\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+G:\Project\RapidWeb\RapidWeb\bin\roslyn\System.Security.Principal.Windows.dll
+G:\Project\RapidWeb\RapidWeb\bin\roslyn\System.Text.Encoding.CodePages.dll
+G:\Project\RapidWeb\RapidWeb\bin\roslyn\System.ValueTuple.dll
+G:\Project\RapidWeb\RapidWeb\bin\roslyn\System.Xml.ReaderWriter.dll
+G:\Project\RapidWeb\RapidWeb\bin\roslyn\System.Xml.XmlDocument.dll
+G:\Project\RapidWeb\RapidWeb\bin\roslyn\System.Xml.XPath.dll
+G:\Project\RapidWeb\RapidWeb\bin\roslyn\System.Xml.XPath.XDocument.dll
+G:\Project\RapidWeb\RapidWeb\bin\roslyn\vbc.exe
+G:\Project\RapidWeb\RapidWeb\bin\roslyn\vbc.exe.config
+G:\Project\RapidWeb\RapidWeb\bin\roslyn\vbc.rsp
+G:\Project\RapidWeb\RapidWeb\bin\roslyn\VBCSCompiler.exe
+G:\Project\RapidWeb\RapidWeb\bin\roslyn\VBCSCompiler.exe.config
+G:\Project\RapidWeb\RapidWeb\bin\Antlr3.Runtime.dll
+G:\Project\RapidWeb\RapidWeb\bin\BouncyCastle.Crypto.dll
+G:\Project\RapidWeb\RapidWeb\bin\Common.Logging.Core.dll
+G:\Project\RapidWeb\RapidWeb\bin\Common.Logging.dll
+G:\Project\RapidWeb\RapidWeb\bin\EntityFramework.dll
+G:\Project\RapidWeb\RapidWeb\bin\EntityFramework.SqlServer.dll
+G:\Project\RapidWeb\RapidWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+G:\Project\RapidWeb\RapidWeb\bin\Microsoft.Web.Infrastructure.dll
+G:\Project\RapidWeb\RapidWeb\bin\MySql.Data.dll
+G:\Project\RapidWeb\RapidWeb\bin\mysql.data.entity.EF6.dll
+G:\Project\RapidWeb\RapidWeb\bin\Newtonsoft.Json.dll
+G:\Project\RapidWeb\RapidWeb\bin\System.Web.Helpers.dll
+G:\Project\RapidWeb\RapidWeb\bin\System.Web.Mvc.dll
+G:\Project\RapidWeb\RapidWeb\bin\System.Web.Optimization.dll
+G:\Project\RapidWeb\RapidWeb\bin\System.Web.Razor.dll
+G:\Project\RapidWeb\RapidWeb\bin\System.Web.WebPages.Deployment.dll
+G:\Project\RapidWeb\RapidWeb\bin\System.Web.WebPages.dll
+G:\Project\RapidWeb\RapidWeb\bin\System.Web.WebPages.Razor.dll
+G:\Project\RapidWeb\RapidWeb\bin\WebGrease.dll
+G:\Project\RapidWeb\RapidWeb\bin\BouncyCastle.Crypto.xml
+G:\Project\RapidWeb\RapidWeb\bin\Common.Logging.pdb
+G:\Project\RapidWeb\RapidWeb\bin\Common.Logging.xml
+G:\Project\RapidWeb\RapidWeb\bin\Common.Logging.Core.pdb
+G:\Project\RapidWeb\RapidWeb\bin\Common.Logging.Core.xml
+G:\Project\RapidWeb\RapidWeb\bin\EntityFramework.xml
+G:\Project\RapidWeb\RapidWeb\bin\EntityFramework.SqlServer.xml
+G:\Project\RapidWeb\RapidWeb\bin\MySql.Data.xml
+G:\Project\RapidWeb\RapidWeb\bin\System.Web.Helpers.xml
+G:\Project\RapidWeb\RapidWeb\bin\System.Web.Mvc.xml
+G:\Project\RapidWeb\RapidWeb\bin\System.Web.Optimization.xml
+G:\Project\RapidWeb\RapidWeb\bin\System.Web.Razor.xml
+G:\Project\RapidWeb\RapidWeb\bin\System.Web.WebPages.xml
+G:\Project\RapidWeb\RapidWeb\bin\System.Web.WebPages.Deployment.xml
+G:\Project\RapidWeb\RapidWeb\bin\System.Web.WebPages.Razor.xml
+G:\Project\RapidWeb\RapidWeb\bin\Newtonsoft.Json.xml
+G:\Project\RapidWeb\RapidWeb\bin\Antlr3.Runtime.pdb
+G:\Project\RapidWeb\RapidWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+G:\Project\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.InitialAndTest.resources
+G:\Project\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.AddTablesUptoUsers.resources
+G:\Project\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.AddTablesUptoEmployees.resources
+G:\Project\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.AddTablesUptoClients.resources
+G:\Project\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.AddTablesUptoProducts.resources
+G:\Project\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.AddTablesUptoComplainProductsDetails.resources
+G:\Project\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.AddTablesUptoPurchaseRequestProducts.resources
+G:\Project\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.AddTablesUptoPurchaseOrderProducts.resources
+G:\Project\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.AddTablesUptoStockInProducts.resources
+G:\Project\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.AddTablesUptoStockOutProducts.resources
+G:\Project\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.AddTablesUptoSaleTexInvoiceProducts.resources
+G:\Project\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.AddTablesUptoNormalInvoiceProducts.resources
+G:\Project\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.AddTablesUptoEmployeeSalaries.resources
+G:\Project\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.AddTablesUptoDailyExpenses.resources
+G:\Project\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.SeedRoles.resources
+G:\Project\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.SeedMasterUser.resources
+G:\Project\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.ModifyLandlineColInClients.resources
+G:\Project\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.ModifyOnDaysColInClients.resources
+G:\Project\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.ModifyNTNColInVendors.resources
+G:\Project\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.ModifyNTNAndPSTRColsInSaleTaxInvoice.resources
+G:\Project\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.AddRemainingQtyInPurchaseRequestProducts.resources
+G:\Project\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.AddRemainingQtyInPurchaseOrderProducts.resources
+G:\Project\RapidWeb\RapidWeb\obj\Debug\RapidWeb.csproj.GenerateResource.cache
+G:\Project\RapidWeb\RapidWeb\obj\Debug\RapidWeb.csproj.CoreCompileInputs.cache
+G:\Project\RapidWeb\RapidWeb\obj\Debug\RapidWeb.csproj.CopyComplete
+G:\Project\RapidWeb\RapidWeb\obj\Debug\RapidWeb.dll
+G:\Project\RapidWeb\RapidWeb\obj\Debug\RapidWeb.pdb
+G:\Project\RapidWeb\RapidWeb\obj\Debug\RapidWeb.csprojAssemblyReference.cache
+G:\Project\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.SeedNewRole.resources
+G:\Project\RapidWeb\RapidWeb\obj\Debug\RapidWeb.Migrations.AddSampleQuantityColInProducts.resources

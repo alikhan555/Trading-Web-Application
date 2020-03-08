@@ -1,0 +1,112 @@
+﻿@using RapidWeb.Models
+@model RapidWeb.Models.PurchaseRequest
+
+@{
+    ViewBag.Title = "Purchase Request Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-xl-12 order-xl-1">
+    <div id="SectionChartDiv" class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+                <div class="col-8">
+                    <h3 class="mb-0">@ViewBag.Title</h3>
+                </div>
+                <div class="col-4 text-right">
+                    <a class="float-right btn btn-primary btn-sm" href="@Url.Action("Index")">Back To List</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.PrefixId, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.PrefixId, new { @disabled = true, @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.CreationDateTime, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.CreationDateTime, new { @disabled = true, @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-12">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.RequestFor, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.RequestFor, new { @disabled = true, @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-2">
+                    <div class="form-group focused">
+                        <label class="form-control-label" for="TotalCost">Total Cost</label>
+                        <input class="form-control form-control-alternative" disabled id="TotalCost" name="TotalCost" type="text" value="@Model.PurchaseRequestProducts.Sum(x => x.UnitPrice * x.RequiredQty)">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="table-responsive">
+                    <table id="DynamicTable" class="table align-items-center table-flush">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Product ID</th>
+                                <th scope="col">Product Name</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Cost</th>
+                                <th scope="col">Net Cost</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (PurchaseRequestProduct purchaseRequestProduct in Model.PurchaseRequestProducts)
+                            {
+                                <tr class="text-dark">
+                                    <td style="">
+                                        @purchaseRequestProduct.Product.PrefixId
+                                    </td>
+                                    <td style="">
+                                        @purchaseRequestProduct.Product.Description
+                                    </td>
+                                    <td style="">
+                                        @purchaseRequestProduct.RequiredQty
+                                    </td>
+                                    <td style="">
+                                        @purchaseRequestProduct.UnitPrice
+                                    </td>
+                                    <td style="">
+                                        @(purchaseRequestProduct.RequiredQty * purchaseRequestProduct.UnitPrice)
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <br />
+
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <a id="SaveAsPdf" href="#" role="button" class="btn btn-success" onclick="PagePrint()">Save As Pdf</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jquery");
+}

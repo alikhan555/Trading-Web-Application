@@ -1,0 +1,317 @@
+﻿@model RapidWeb.Models.Complain
+@{
+    ViewBag.Title = "Complain Assignment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="col-xl-12 order-xl-1">
+
+    <div id="SectionChartDiv" class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+                <div class="col-8">
+                    <h3 class="mb-0">Complain Assignment</h3>
+                </div>
+                <div class="col-4 text-right">
+                    <a class="float-right btn btn-primary btn-sm" href="@Url.Action("Index")">Back To List</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+                        @Html.TextBoxFor(U => U.Id, new { @hidden=true, @class = "form-control form-control-alternative" })
+
+                        <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.PrefixId, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.PrefixId, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.Client.PrefixId, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.Client.PrefixId, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.Client.Name, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.Client.Name, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.CreationDateTime, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.CreationDateTime, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.Employee.Name, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.Employee.Name, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.ComplainType, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.ComplainType, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-12">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.Description, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.Description, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-md-12">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.ProgressReport, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.ProgressReport, new { @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-lg-4">
+                    <div class="form-group focused">
+                        <label class="form-control-label" for="TotalCost">Total Cost</label>
+                        <input class="form-control form-control-alternative" disabled id="TotalCost" name="TotalCost" type="text" value="0">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="table-responsive">
+                    <table id="DynamicTable" class="table align-items-center table-flush">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Product</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Cost</th>
+                                <th scope="col">Net Cost</th>
+                                <th scope="col">Remove</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @*<tr>
+                            <td class="SequenceNo">
+                                <select class="form-control form-control-alternative" data-val="true" data-val-number="The field RoleId must be a number." data-val-required="The RoleId field is required." id="User_RoleId" name="User.RoleId"></select>
+                            </td>
+                            <td class="CourseId">
+                                <input type="text" id="Section-Name" class="form-control form-control-alternative">
+                            </td>
+                            <td class="CourseTitle">
+                                <input type="text" id="Section-Name" class="form-control form-control-alternative">
+                            </td>
+                            <td align="center">
+                                <button class="DeleteRow btn btn-danger btn-sm" type="button">
+                                    <span aria-hidden="true">
+                                        X
+                                    </span>
+                                </button>
+                            </td>
+                        </tr>*@
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5">
+                                    <button id="AddNewRow" class="  btn btn-primary btn-sm btn-block" style="" type="button">
+                                        Add
+                                    </button>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+
+            <div align='center'>
+                <div class="col-lg-12">
+                    <div id="AlertMessageMain" class="alert alert-success alert-dismissible fade show" style="display: none" role="alert">
+                        <span id="AlertMessage"></span>
+                        <button id="AlertMessageClose" type="button" class="close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input id="AssignmentCompleteBtn" type="submit" role="button" value="Assignment Complete" class="btn btn-success">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jquery");
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var productsList = [];
+            LoadProducts();
+            
+            function LoadProducts() {
+                $.ajax({
+                    url: "/Product/GetProductAllProducts",
+                    type: "GET",
+                    success: function(data) {
+                        productsList = data;
+                    },
+                    error: function() {
+                    }
+                });
+            }
+
+            $("#AssignmentCompleteBtn").click(function() {
+                var Products = [];
+
+                $('#DynamicTable tbody tr').each(function() {
+                    var prod = {};
+
+                    prod.ProductId = $(this).find('td select').val();
+                    prod.Qty = $(this).find('td .ProductQty').val();
+                    prod.Cost = $(this).find('td .ProductCost').val();
+
+                    Products.push(prod);
+                });
+
+                var complain = {
+                    Id: $("#Id").val(),
+                    ProgressReport: $("#ProgressReport").val(),
+
+                    AssignmentProducts: Products,
+                };
+
+                $("#AlertMessage").text("Loading.");
+                $("#AlertMessageMain").addClass("alert-warning");
+                $("#AlertMessageMain").removeClass("alert-danger alert-success");
+                $("#AlertMessageMain").css("display", "block");
+
+                $.ajax({
+                    url: "/Complain/ComplainAssignment/",
+                    type: "POST",
+                    data: JSON.stringify(complain),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+
+
+                        $("#AlertMessage").text("Success.");
+                        $("#AlertMessageMain").addClass("alert-success");
+                        $("#AlertMessageMain").removeClass("alert-danger alert-warning");
+                    },
+                    error: function (request,error) {
+
+                        console.log(request);
+                        $("#AlertMessage").text("Failed. You have filled an invalid data.");
+                        $("#AlertMessageMain").addClass("alert-danger");
+                        $("#AlertMessageMain").removeClass("alert-success alert-warning");
+                    }
+                });
+            });
+
+            $("#AlertMessageClose").click(function() {
+                $("#AlertMessageMain").css("display", "none");
+            });
+
+
+
+            // total calculate code
+            $("#DynamicTable").on("keyup", ".ProductQty, .ProductCost", function () {
+                var changedTr = $(this).parent().parent();
+                calculateTrTotal(changedTr);
+            });
+
+            function calculateTrTotal(changedTr) {
+                var trQty = changedTr.find(".ProductQty")[0].value;
+                var trCost = changedTr.find(".ProductCost")[0].value;
+                changedTr.find(".ProductTotalCost")[0].value = parseInt(trQty) * parseFloat(trCost);
+
+                calculateTableCost();
+            }
+
+            function calculateTableCost() {
+                var total = .0;
+                $('#DynamicTable tbody tr').each(function () {
+                    total += parseFloat($(this).find('td .ProductTotalCost').val());
+                });
+
+                $("#TotalCost").val(total);
+                console.log(total);
+            }
+
+            $("#DynamicTable").on("change",".productDropDown", function() {
+                var productDrop = $(this);
+                var productId = productDrop.val();
+                var product = productsList.filter(x => { return x.Id == productId })[0];
+                var productCost = product.Cost;
+                var tr = productDrop.parent().parent();
+                var costInput = tr.find(".ProductCost")[0];
+                costInput.value = productCost;
+                calculateTrTotal(tr);
+            });
+
+
+
+
+            $("#AddNewRow").click(function() {
+                var options = "<option value>Select Product</option>";
+
+                $.each(productsList,
+                    function(index, item) {
+                        options += "<option value=" + item.Id + ">" + item.Description + "</option>";
+                    });
+
+                var tbody = $("#DynamicTable tbody");
+                var tr = "<tr>" +
+                    "<td class=''>" +
+                    "<select class='productDropDown form-control form-control-alternative'>" +
+                    options +
+                    "</select>" +
+                    "</td>" +
+                    "<td class=''>" +
+                    "<input type='text' class='ProductQty form-control form-control-alternative'>" +
+                    "</td>" +
+                    "<td class=''>" +
+                    "<input type='text' class='ProductCost form-control form-control-alternative' disabled>" +
+                    "</td>" +
+                    "</td>" +
+                    "<td class=''>" +
+                    "<input type='text' class='ProductTotalCost form-control form-control-alternative' value='0' disabled>" +
+                    "</td>" +
+                    "<td align='center'>" +
+                    "<button class='DeleteRow btn btn-danger btn-sm' type='button'>" +
+                    "<span aria-hidden='true'>" +
+                    "X" +
+                    "</span>" +
+                    "</button>" +
+                    "</td>" +
+                    "</tr>";
+                tbody.append(tr);
+            });
+
+
+            //change here
+            $("#DynamicTable").on("click", ".DeleteRow", function() {
+                $(this).parent().parent().remove();
+                calculateTableCost();
+            });
+        });
+    </script>
+}

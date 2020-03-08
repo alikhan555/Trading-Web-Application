@@ -1,0 +1,153 @@
+﻿
+@{
+    ViewBag.Title = "Advance Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-xl-12 order-xl-1">
+    <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+                <div class="col-4">
+                    <h3 class="mb-0">@ViewBag.Title</h3>
+                </div>
+                <div class="col-8">
+                    <a class="float-right btn btn-primary btn-sm" href="@Url.Action("Index")">Back To List</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-2 col-md-2">
+                    <div class="form-group">
+                        <p class="ct-content">Vendor ID</p>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                    <div class="form-group">
+                        <div class="input-group input-group-alternative">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text prefixId">SUP</span>
+                            </div>
+                            <input class="form-control form-control-alternative" id="VendorIdFrom" name="VendorIdFrom" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2 col-md-1 text-center">
+                    <div class="form-group">
+                        <p class="ct-content">TO</p>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                    <div class="form-group">
+                        <div class="input-group input-group-alternative">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text prefixId">SUP</span>
+                            </div>
+                            <input class="form-control form-control-alternative" id="VendorIdTo" name="VendorIdTo" type="text">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4 col-md-4">
+                    <div class="form-group">
+                        <button id="DisplayList" type="submit" class="btn btn-success">Display</button>
+                        <button id="SaveAsPdfBtn" type="submit" class="btn btn-success" onclick="PagePrint()">Save As Button</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4 col-md-12">
+                    <table id="Table" class="table text-align-center table-bordered table-grid">
+                        <thead class="text-primary font-weight-bold">
+                            <tr>
+                                <th scope="col">Vendor ID</th>
+                                <th scope="col">Vendor Name</th>
+                                <th scope="col">Contact No.</th>
+                                <th scope="col">Email ID</th>
+                                <th scope="col">City</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @*<tr class="text-dark">
+                            <td style="">
+                                @employee.Id
+                            </td>
+                            <td style="">
+                                @employee.Name
+                            </td>
+                            <td style="">
+                                @employee.Department.Name
+                            </td>
+                            <td style="">
+                                @employee.Designation
+                            </td>
+                            <td style="">
+                                @employee.GrossSalary
+                            </td>
+                            <td style="">
+                                @employee.GrossSalary
+                            </td>
+                        </tr>*@
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            
+            $("#DisplayList").click(function () {
+                var vendorIdFrom = $("#VendorIdFrom").val();
+                var vendorIdTo = $("#VendorIdTo").val();
+
+                var cityIdFrom = $("#CityIdFrom").val();
+                var cityIdTo = $("#CityIdTo").val();
+
+                var tableBody = $("#Table tbody");
+                tableBody.empty();
+
+                $.ajax({
+                    url: "/Vendor/GetVendors?vendorIdFrom=" + vendorIdFrom + "&vendorIdTo=" + vendorIdTo + "&cityIdFrom=" + cityIdFrom + "&cityIdTo=" + cityIdTo,
+                    type: "POST",
+                    success: function (data) {
+                        $.each(data,
+                            function (index, item) {
+                                var tr = "<tr>" +
+                                    "<td>" +
+                                    item.PrefixId +
+                                    "</td>" +
+                                    "<td>" +
+                                    item.Name +
+                                    "</td>" +
+                                    "<td>" +
+                                    item.Contact +
+                                    "</td>" +
+                                    "<td>" +
+                                    item.Email +
+                                    "</td>" +
+                                    "<td>" +
+                                    item.City +
+                                    "</td>" +
+                                    "</tr>";
+
+                                tableBody.append(tr);
+                            });
+                    },
+                    error() {
+
+                    }
+                });
+            });
+        });
+    </script>
+}

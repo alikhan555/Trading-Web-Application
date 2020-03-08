@@ -1,0 +1,46 @@
+﻿@using RapidWeb.Models
+
+@{
+    ViewBag.Title = "Payroll System";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    int roleId = ((User)HttpContext.Current.Session["User"]).RoleId;
+}
+
+
+<div class="col-xl-12 order-xl-1">
+    <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+                <div class="col-8">
+                    <h3 class="mb-0">@ViewBag.Title</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+            
+            <div class="container">
+                <div class="row">
+                    @if (roleId != Role.RTPUser)
+                    {
+                        <a type="submit" href="@Url.Action("NewPayrollFrom")" class="btn btn-primary">Create Payroll</a>
+                    }
+                    
+                    @if (roleId != Role.RTPUser)
+                    {
+                        <a type="submit" href="@Url.Action("GeneratePayrollForm")" class="btn btn-primary">Generate Payroll</a>
+                    }
+
+                    <a type="submit" href="@Url.Action("paySlipForm")" class="btn btn-primary">Pay Slips</a>
+                    <a type="submit" href="@Url.Action("SalaryDetailForm")" class="btn btn-primary">Salary Detail Form</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,98 @@
+﻿@using RapidWeb.Models
+
+@{
+    ViewBag.Title = "Daily Expenses List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    int roleId = ((User)HttpContext.Current.Session["User"]).RoleId;
+}
+
+<div class="col-xl-12 order-xl-1">
+    <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+                <div class="col-8">
+                    <h3 class="mb-0">@ViewBag.Title</h3>
+                </div>
+                <div class="col-4">
+                    @if (roleId != Role.RTPUser)
+                    {
+                        <a class="float-right btn btn-primary btn-sm" href="@Url.Action("Create")">New Daily Expense</a>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <table id="Table" class="table text-align-center table-bordered table-grid">
+                <thead class="text-primary font-weight-bold">
+                    <tr>
+                        <th scope="col">Voucher ID</th>
+                        <th scope="col">Voucher Date</th>
+                        <th scope="col">Employee ID</th>
+                        <th scope="col">Employee Name</th>
+                        <th scope="col">Department</th>
+                        <th scope="col">In Account Of</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Options</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (DailyExpense dailyExpense in Model)
+                    {
+                    <tr class="text-dark">
+                        <td style="">
+                            @dailyExpense.PrefixId
+                        </td>
+                        <td style="">
+                            @dailyExpense.ExpenseVoucherDate.ToShortDateString()
+                        </td>
+                        <td style="">
+                            @dailyExpense.Employee.PrefixId
+                        </td>
+                        <td style="">
+                            @dailyExpense.Employee.Name
+                        </td>
+                        <td style="">
+                            @dailyExpense.Employee.Department.Name
+                        </td>
+                        <td style="">
+                            @dailyExpense.InAccountOf
+                        </td>
+                        <td style="">
+                            @dailyExpense.Amount
+                        </td>
+                        <td>
+                            @if (roleId != Role.RTPUser)
+                            {
+                                <a href="@Url.Action("Edit", "DailyExpense", new {id = dailyExpense.Id})" style="cursor: pointer" class="ml-2 text-primary EditUser"><i class="fa fa-pen"></i></a>
+                            }
+                            
+                            <a href="@Url.Action("DailyExpenseDetail", "DailyExpense", new {id = dailyExpense.Id})" style="cursor: pointer" class="ml-2 text-primary ViewUser"><i class="fa fa-eye"></i></a>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $("#Table").dataTable();
+        });
+
+        $(".form-inline").css({
+            width: 1000
+        });
+    </script>
+}
+<style>
+    .form-inline {
+        display: block;
+    }
+</style>

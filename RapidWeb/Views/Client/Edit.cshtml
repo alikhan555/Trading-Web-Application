@@ -1,0 +1,177 @@
+﻿@model RapidWeb.ViewModel.ClientViewModel
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-xl-12 order-xl-1">
+    <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+                <div class="col-8">
+                    <h3 class="mb-0">@ViewBag.Title</h3>
+                </div>
+                <div class="col-4">
+                    <a class="float-right btn btn-primary btn-sm" href="@Url.Action("Index","Client")">Back To List</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+
+            @using (Html.BeginForm("Edit", "Client", FormMethod.Post, new { autocomplete = "off" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(x => x.Client.Id)
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-2">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Client.PrefixId, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.Client.PrefixId, new { @disabled="true", @class = "form-control form-control-alternative" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-sm-6 col-md-2">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Client.RefCode, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.Client.RefCode, new { @class = "form-control form-control-alternative" })
+                            @Html.ValidationMessageFor(U => U.Client.RefCode, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-12">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Client.Name, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.Client.Name, new { @class = "form-control form-control-alternative" })
+                            @Html.ValidationMessageFor(U => U.Client.Name, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-6">
+                        <div class="form-group">
+                            @{
+                                var cities = Model.ServiceCities.Select(x => new
+                                {
+                                    Id = x.Id,
+                                    Text = x.Name + " - " + x.District,
+                                });
+                                @Html.LabelFor(U => U.Client.CityId, new { @class = "form-control-label" })
+                                @Html.DropDownListFor(U => U.Client.CityId, new SelectList(cities, "Id", "Text"), "Select City-District", new { @class = "form-control form-control-alternative" })
+                                @Html.ValidationMessageFor(U => U.Client.CityId, "", new { @class = "invalid-feedback", @style = "display:block" })
+                            }
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Client.Area, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.Client.Area, new { @class = "form-control form-control-alternative" })
+                            @Html.ValidationMessageFor(U => U.Client.Area, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-12">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Client.Address, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.Client.Address, new { @class = "form-control form-control-alternative" })
+                            @Html.ValidationMessageFor(U => U.Client.Address, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-12">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Client.ContactPersonName, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.Client.ContactPersonName, new { @class = "form-control form-control-alternative" })
+                            @Html.ValidationMessageFor(U => U.Client.ContactPersonName, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Client.ContactNo, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.Client.ContactNo, new { @class = "form-control form-control-alternative" })
+                            @Html.ValidationMessageFor(U => U.Client.ContactNo, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Client.ContactLandLine, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.Client.ContactLandLine, new { @class = "form-control form-control-alternative" })
+                            @Html.ValidationMessageFor(U => U.Client.ContactLandLine, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Client.PackageId, new { @class = "form-control-label" })
+                            @Html.DropDownListFor(U => U.Client.PackageId, new SelectList(Model.Packages, "Id", "Type"), "Select Package", new { @class = "form-control form-control-alternative" })
+                            @Html.ValidationMessageFor(U => U.Client.PackageId, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Client.Email, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.Client.Email, new { @class = "form-control form-control-alternative" })
+                            @Html.ValidationMessageFor(U => U.Client.Email, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Client.OnDays, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.Client.OnDays, new { @class = "form-control form-control-alternative" })
+                            @Html.ValidationMessageFor(U => U.Client.OnDays, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Client.Timing, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.Client.Timing, new { @class = "form-control form-control-alternative" })
+                            @Html.ValidationMessageFor(U => U.Client.Timing, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Client.CreditDays, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.Client.CreditDays, new { @class = "form-control form-control-alternative" })
+                            @Html.ValidationMessageFor(U => U.Client.CreditDays, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="update" class="btn btn-success" />
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

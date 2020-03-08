@@ -1,0 +1,201 @@
+﻿@using RapidWeb.Models
+@model RapidWeb.ViewModel.SaleTexInvoiceViewModel
+@{
+    ViewBag.Title = "Sale Tax Invoice Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-xl-12 order-xl-1">
+    <div id="SectionChartDiv" class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+                <div class="col-8">
+                    <h3 class="mb-0">@ViewBag.Title</h3>
+                </div>
+                <div class="col-4 text-right">
+                    <a class="float-right btn btn-primary btn-sm" href="@Url.Action("Index")">Back To List</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.SalesTaxInvoice.Date, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.SalesTaxInvoice.Date, "{0:MM/dd/yyyy}", new { @disabled = true,  @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.SalesTaxInvoice.PrefixId, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.SalesTaxInvoice.PrefixId, new { @disabled = true, @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.SalesTaxInvoice.ComplainId, new { @class = "form-control-label" })
+                        <input class="form-control form-control-alternative valid" value="@Complain.Prefix@Model.SalesTaxInvoice.ComplainId" disabled>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.SalesTaxInvoice.PurchaseOrderId, new { @class = "form-control-label" })
+                        <input class="form-control form-control-alternative valid" value="@PurchaseOrder.Prefix@Model.SalesTaxInvoice.PurchaseOrderId" disabled>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-12">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.SalesTaxInvoice.CustomerName, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.SalesTaxInvoice.CustomerName, new { @disabled = true, @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.SalesTaxInvoice.CustomerAddress, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.SalesTaxInvoice.CustomerAddress, new { @disabled = true, @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.SalesTaxInvoice.CoAddress, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.SalesTaxInvoice.CoAddress, new { @disabled = true, @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.SalesTaxInvoice.PSTRNo, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.SalesTaxInvoice.PSTRNo, new { @disabled = true, @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.SalesTaxInvoice.CoPSTRNo, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.SalesTaxInvoice.CoPSTRNo, new { @disabled = true, @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.SalesTaxInvoice.NTNNo, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.SalesTaxInvoice.NTNNo, new { @disabled = true, @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.SalesTaxInvoice.CoNTNNo, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.SalesTaxInvoice.CoNTNNo, new { @disabled = true, @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-12">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.SalesTaxInvoice.WorkNature, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.SalesTaxInvoice.WorkNature, new { @disabled = true, @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-4">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.SalesTaxInvoice.TotalExcludingSaleTex, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.SalesTaxInvoice.TotalExcludingSaleTex, new { @disabled = true, @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.SalesTaxInvoice.SaleTexAmountPayable, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.SalesTaxInvoice.SaleTexAmountPayable, new { @disabled = true, @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.SalesTaxInvoice.TotalAmount, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.SalesTaxInvoice.TotalAmount, new { @disabled = true, @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-12">
+                    <div class="form-group">
+                        @Html.LabelFor(U => U.SalesTaxInvoice.InWords, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(U => U.SalesTaxInvoice.InWords, new { @disabled = true, @class = "form-control form-control-alternative" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="table-responsive">
+                    <table id="DynamicTable" class="table align-items-center table-flush">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Product</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Cost</th>
+                                <th scope="col">Total Cost</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (SaleTexInvoiceProduct saleTaxInvoice in Model.SalesTaxInvoice.SaleTexInvoiceProducts)
+                            {
+                                <tr class="text-dark">
+                                    <td style="">
+                                        @Product.Prefix@saleTaxInvoice.ProductId
+                                    </td>
+                                    <td style="">
+                                        @saleTaxInvoice.RequiredQty
+                                    </td>
+                                    <td style="">
+                                        @saleTaxInvoice.UnitPrice
+                                    </td>
+                                    <td style="">
+                                        @(saleTaxInvoice.UnitPrice * saleTaxInvoice.RequiredQty)
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div align='center'>
+                <div class="col-lg-12">
+                    <div id="AlertMessageMain" class="alert alert-success alert-dismissible fade show" style="display: none" role="alert">
+                        <span id="AlertMessage"></span>
+                        <button id="AlertMessageClose" type="button" class="close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <a id="SaveAsPdfBtn" class="btn btn-success" href="#" onclick="PagePrint()">Save As Pdf</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,252 @@
+﻿@using RapidWeb.Models
+@model RapidWeb.ViewModel.EmployeeViewModel
+@{
+    ViewBag.Title = "New Employee";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-xl-12 order-xl-1">
+    <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+                <div class="col-8">
+                    <h3 class="mb-0">@ViewBag.Title</h3>
+                </div>
+                <div class="col-4">
+                    <a class="float-right btn btn-primary btn-sm" href="@Url.Action("Index","Employee")">Back To List</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+
+            @using (Html.BeginForm("Create", "Employee", FormMethod.Post, new { autocomplete = "off" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="row">
+                    <div class="col-sm-12 col-xl-5">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Employee.Name, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.Employee.Name, new { @class = "form-control form-control-alternative" })
+                            @Html.ValidationMessageFor(U => U.Employee.Name, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-5">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Employee.Guardian, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.Employee.Guardian, new { @class = "form-control form-control-alternative" })
+                            @Html.ValidationMessageFor(U => U.Employee.Guardian, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-2">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Employee.CNIC, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.Employee.CNIC, new { @class = "form-control form-control-alternative" })
+                            @Html.ValidationMessageFor(U => U.Employee.CNIC, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="form-group">
+                            @{
+                                var customizedCityList = Model.ServiceCities.Select(x => new
+                                {
+                                    x.Id,
+                                    Description = x.Name + " --- " + x.District
+                                });
+
+                                @Html.LabelFor(U => U.Employee.CityId, new { @class = "form-control-label" })
+                                @Html.DropDownListFor(U => U.Employee.CityId, new SelectList(customizedCityList, "Id", "Description"), "Select City --- District", new { @class = "form-control form-control-alternative" })
+                                @Html.ValidationMessageFor(U => U.Employee.CityId, "", new { @class = "invalid-feedback", @style = "display:block" })
+                            }
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-9">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Employee.Address, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.Employee.Address, new { @class = "form-control form-control-alternative" })
+                            @Html.ValidationMessageFor(U => U.Employee.Address, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 col-xl-2">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Employee.ContactMobile, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.Employee.ContactMobile, new { @class = "form-control form-control-alternative" })
+                            @Html.ValidationMessageFor(U => U.Employee.ContactMobile, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-2">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Employee.ContactHome, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.Employee.ContactHome, new { @class = "form-control form-control-alternative" })
+                            @Html.ValidationMessageFor(U => U.Employee.ContactHome, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-2">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Employee.Dob, new { @class = "form-control-label" })
+                            <div class="input-group input-group-alternative">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                                </div>
+                                @Html.TextBoxFor(U => U.Employee.Dob, "{0:MM/dd/yyyy}", new { @class = "form-control form-control-alternative datepicker" })
+                            </div>
+                            @Html.ValidationMessageFor(U => U.Employee.Dob, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-2">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Employee.Gender, new { @class = "form-control-label" })
+                            @Html.DropDownListFor(U => U.Employee.Gender, new List<SelectListItem>()
+                            {
+                                new SelectListItem() { Text = "Male", Value = "Male"},
+                                new SelectListItem() { Text = "Female", Value = "Female"},
+                            }, "Select Gender",new { @class = "form-control form-control-alternative" })
+                            @Html.ValidationMessageFor(U => U.Employee.Gender, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-xl-4">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Employee.Qualification, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.Employee.Qualification, new { @class = "form-control form-control-alternative" })
+                            @Html.ValidationMessageFor(U => U.Employee.Qualification, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+                </div>
+
+                <hr/>
+
+                <div class="row">
+                    @*Department*@
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Employee.DepartmentId, new { @class = "form-control-label" })
+                            @Html.DropDownListFor(U => U.Employee.DepartmentId, new SelectList(Model.Departments, "Id", "Name"), "Select Department", new { @class = "form-control form-control-alternative" })
+                            @Html.ValidationMessageFor(U => U.Employee.DepartmentId, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Employee.Designation, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.Employee.Designation, new { @class = "form-control form-control-alternative" })
+                            @Html.ValidationMessageFor(U => U.Employee.Designation, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Employee.Experience, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.Employee.Experience, new { @class = "form-control form-control-alternative" })
+                            @Html.ValidationMessageFor(U => U.Employee.Experience, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Employee.DateOfJoining, new { @class = "form-control-label" })
+                            <div class="input-group input-group-alternative">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                                </div>
+                                @Html.TextBoxFor(U => U.Employee.DateOfJoining, "{0:MM/dd/yyyy}", new { @class = "form-control form-control-alternative datepicker" })
+                            </div>
+                            @Html.ValidationMessageFor(U => U.Employee.DateOfJoining, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 col-xl-2">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Employee.Salary, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.Employee.Salary, new { @class = "form-control form-control-alternative" })
+                            @Html.ValidationMessageFor(U => U.Employee.Salary, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-2">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Employee.HouseRent, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.Employee.HouseRent, new { @class = "form-control form-control-alternative" })
+                            @Html.ValidationMessageFor(U => U.Employee.HouseRent, "", new { @class = "invalid-feedback", @style = "display:block" })
+
+
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-2">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Employee.TransportAllowance, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.Employee.TransportAllowance, new { @class = "form-control form-control-alternative" })
+                            @Html.ValidationMessageFor(U => U.Employee.TransportAllowance, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-2">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Employee.UtilityAllowance, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.Employee.UtilityAllowance, new { @class = "form-control form-control-alternative" })
+                            @Html.ValidationMessageFor(U => U.Employee.UtilityAllowance, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-2">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Employee.BonusAllowance, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.Employee.BonusAllowance, new { @class = "form-control form-control-alternative" })
+                            @Html.ValidationMessageFor(U => U.Employee.BonusAllowance, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-2">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Employee.OtherBenefits, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.Employee.OtherBenefits, new { @class = "form-control form-control-alternative" })
+                            @Html.ValidationMessageFor(U => U.Employee.OtherBenefits, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+                </div>
+
+                @*<div class="row">
+                        <div class="col-sm-6 col-xl-4">
+                            <div class="form-group">
+                                @Html.LabelFor(U => U.Employee.GrossSalary, new { @class = "form-control-label" })
+                                @Html.TextBoxFor(U => U.Employee.GrossSalary, new { @disabled = "true", @class = "form-control form-control-alternative" })
+                                @Html.ValidationMessageFor(U => U.Employee.GrossSalary, "", new { @class = "invalid-feedback", @style = "display:block" })
+                            </div>
+                        </div>
+                    </div>*@
+
+                <div class="row">
+                    <div class="col-sm-6 col-xl-6">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Employee.BankAccountDetail, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.Employee.BankAccountDetail, new { @class = "form-control form-control-alternative" })
+                            @Html.ValidationMessageFor(U => U.Employee.BankAccountDetail, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-6">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Employee.Note, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.Employee.Note, new { @class = "form-control form-control-alternative" })
+                            @Html.ValidationMessageFor(U => U.Employee.Note, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-xl-offset-2 col-xl-10">
+                            <input type="submit" value="Create" class="btn btn-success" />
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

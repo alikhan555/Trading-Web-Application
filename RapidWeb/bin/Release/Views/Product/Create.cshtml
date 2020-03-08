@@ -1,0 +1,101 @@
+﻿@model RapidWeb.Models.Product
+@{
+    ViewBag.Title = "New Product";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-xl-12 order-xl-1">
+    <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+                <div class="col-8">
+                    <h3 class="mb-0">@ViewBag.Title</h3>
+                </div>
+                <div class="col-4">
+                    <a class="float-right btn btn-primary btn-sm" href="@Url.Action("Index")">Back To List</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+
+            @using (Html.BeginForm("Create", "Product", FormMethod.Post, new { autocomplete = "off" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-12">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Description, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.Description, new { @class = "form-control form-control-alternative" })
+                            @Html.ValidationMessageFor(U => U.Description, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.SerialNo, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.SerialNo, new { @class = "form-control form-control-alternative" })
+                            @Html.ValidationMessageFor(U => U.SerialNo, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+
+                    @*purchasing Date*@
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.CreationDate, new { @class = "form-control-label" })
+                            <div class="input-group input-group-alternative">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                                </div>
+                                @Html.TextBoxFor(U => U.CreationDate, "{0:MM/dd/yyyy}", new { @class = "form-control form-control-alternative datepicker" })
+                            </div>
+                            @Html.ValidationMessageFor(U => U.CreationDate, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.SampleQuantity, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.SampleQuantity, new { @class = "form-control form-control-alternative" })
+                            @Html.ValidationMessageFor(U => U.SampleQuantity, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.Cost, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.Cost, new { @class = "form-control form-control-alternative" })
+                            @Html.ValidationMessageFor(U => U.Cost, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-md-3">
+                        <div class="form-group">
+                            @Html.LabelFor(U => U.LastOutCost, new { @class = "form-control-label" })
+                            @Html.TextBoxFor(U => U.LastOutCost, new { @class = "form-control form-control-alternative" })
+                            @Html.ValidationMessageFor(U => U.LastOutCost, "", new { @class = "invalid-feedback", @style = "display:block" })
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Create" class="btn btn-success" />
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

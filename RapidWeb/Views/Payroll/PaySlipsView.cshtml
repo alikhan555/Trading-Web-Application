@@ -1,0 +1,272 @@
+﻿@using RapidWeb.Models
+@model IEnumerable<RapidWeb.Models.EmployeeSalary>
+
+@{
+    ViewBag.Title = "Pay Slips";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-xl-12 order-xl-1">
+    <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0" >
+            <div class="row align-items-center">
+                <div class="col-8">
+                    <h3 class="mb-0"></h3>
+                </div>
+                <div class="col-4">
+                    <a class="float-right btn btn-primary btn-sm" href="@Url.Action("Index")">Back To List</a>
+                    <a class="float-right btn btn-success btn-sm" onclick="PagePrint()" href="#" >Print</a>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            @foreach (EmployeeSalary item in Model)
+            {
+                <h1 class="text-center">Pay Slip</h1>
+
+                <br />
+                    
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <p class="ct-content h4">Employee ID: </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md-5">
+                        <div class="form-group">
+                            <p class="ct-content h4">@item.Employee.PrefixId</p>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <p class="ct-content h4">Employee Name: </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md-3">
+                        <div class="form-group">
+                            <p class="ct-content h4">@item.Employee.Name</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <p class="ct-content h4">Employee Dept.: </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md-5">
+                        <div class="form-group">
+                            <p class="ct-content h4">@item.Payroll.Department.Name</p>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <p class="ct-content h4">Month of: </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md-3">
+                        <div class="form-group">
+                            <p class="ct-content h4">  @(new DateTime(2000,item.Payroll.Month,1).ToString("MMMM")), @item.Payroll.Year</p>
+                        </div>
+                    </div>
+                </div>
+
+                <br />
+                <br />
+
+                <div class="row">
+                    <div class="col-sm-3 col-md-2">
+                        <div class="form-group">
+                            <p class="ct-content h4">Housing: </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md-5">
+                        <div class="form-group">
+                            <p class="ct-content h4">@item.HousingAllowance</p>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <p class="ct-content h4">Tax Deduction: </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md-3">
+                        <div class="form-group">
+                            <p class="ct-content h4">@item.TaxDeduction</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <p class="ct-content h4">Utility Allowance: </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md-5">
+                        <div class="form-group">
+                            <p class="ct-content h4">@item.UtilityAllowance</p>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <p class="ct-content h4">Other Deduction: </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md-3">
+                        <div class="form-group">
+                            <p class="ct-content h4">@item.OtherDeduction</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <p class="ct-content h4">Transport: </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md-5">
+                        <div class="form-group">
+                            <p class="ct-content h4">@item.TransportAllowance</p>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <p class="ct-content h4">Other Allowance: </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md-3">
+                        <div class="form-group">
+                            <p class="ct-content h4">@item.OtherAllowance</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <p class="ct-content h4">Bonus: </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md-5">
+                        <div class="form-group">
+                            <p class="ct-content h4">@item.BonusAllowance</p>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <p class="ct-content h4">Gross Salary: </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md-3">
+                        <div class="form-group">
+                            <p class="ct-content h4">@item.TotalSalary</p>
+                        </div>
+                    </div>
+                </div>
+
+                <br/>
+
+                @*<div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <label class="form-control-label">Employee ID</label>
+                        <input disabled class="form-control form-control-alternative" type="text" value="@item.Employee.PrefixId">
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <label class="form-control-label">Employee Name</label>
+                        <input disabled class="form-control form-control-alternative" type="text" value="@item.Employee.Name">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <label class="form-control-label">Employee Dept</label>
+                        <input disabled class="form-control form-control-alternative" type="text" value="@item.Payroll.Department.Name">
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <label class="form-control-label">Month Of</label>
+                        <input disabled class="form-control form-control-alternative" type="text" value="@item.Payroll.Month/@item.Payroll.Year">
+                    </div>
+                </div>
+            </div>
+
+            <br/>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <label class="form-control-label">Housing Allowance</label>
+                        <input disabled class="form-control form-control-alternative" type="text" value="@item.HousingAllowance">
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <label class="form-control-label">Tax Deduction</label>
+                        <input disabled class="form-control form-control-alternative" type="text" value="@item.TaxDeduction">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <label class="form-control-label">Utility Allowance</label>
+                        <input disabled class="form-control form-control-alternative" type="text" value="@item.UtilityAllowance">
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <label class="form-control-label">Other Deduction</label>
+                        <input disabled class="form-control form-control-alternative" type="text" value="@item.OtherDeduction">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <label class="form-control-label">Transport Allowance</label>
+                        <input disabled class="form-control form-control-alternative" type="text" value="@item.TransportAllowance">
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <label class="form-control-label">Other Allowance</label>
+                        <input disabled class="form-control form-control-alternative" type="text" value="@item.OtherAllowance">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <label class="form-control-label">Bonus Allowance</label>
+                        <input disabled class="form-control form-control-alternative" type="text" value="@item.BonusAllowance">
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <label class="form-control-label">Gross Salary</label>
+                        <input disabled class="form-control form-control-alternative" type="text" value="@item.TotalSalary">
+                    </div>
+                </div>
+            </div>*@
+
+                <hr />
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

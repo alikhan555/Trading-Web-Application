@@ -1,0 +1,75 @@
+﻿@using RapidWeb.Models
+
+@{
+    ViewBag.Title = "Users List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-xl-12 order-xl-1">
+    <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+                <div class="col-8">
+                    <h3 class="mb-0">@ViewBag.Title</h3>
+                </div>
+                <div class="col-4">
+                    <a class="float-right btn btn-primary btn-sm" href="@Url.Action("Create")">New User</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <table id="UsersTable" class="table text-align-center table-bordered table-grid">
+                <thead class="text-primary font-weight-bold">
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">UserName</th>
+                        <th scope="col">Role</th>
+                        <th scope="col">Options</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (User user in Model)
+                    {
+                        <tr class="text-dark">
+                            <td style="">
+                                @user.Id
+                            </td>
+                            <td style="">
+                                @user.UserName
+                            </td>
+                            <td style="">
+                                @user.Role.Name
+                            </td>
+                            <td>
+                                <a href="@Url.Action("Edit", "User", new { id = user.Id })" style="cursor: pointer" class="ml-2 text-primary EditUser"><i class="fa fa-pen"></i></a>
+                                <a href="@Url.Action("Delete", "User", new { id = user.Id })" style="cursor: pointer" class="ml-2 text-primary ChangeActiveStatusUser"><i class="fa fa-trash"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+   
+@section Scripts
+{
+    <script type="text/javascript">
+        $("#datepicker").datepicker({
+            dateFormat: "mm/dd/yy"
+        });
+
+        $(document).ready(function() {
+            $("#UsersTable").dataTable();
+        });
+        $(".form-inline").css({
+            width: 1000
+        });
+    </script>
+}
+<style>
+    .form-inline {
+        display: block;
+    }
+</style>

@@ -1,0 +1,120 @@
+﻿@using RapidWeb.Models
+
+@{
+    ViewBag.Title = "Clients List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    int roleId = ((User)HttpContext.Current.Session["User"]).RoleId;
+}
+
+
+<div class="col-xl-12 order-xl-1">
+    <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+                <div class="col-8">
+                    <h3 class="mb-0">@ViewBag.Title</h3>
+                </div>
+                <div class="col-4">
+                    @{
+                        if (roleId != Role.RTPUser && roleId != Role.Activity)
+                        {
+                            <a class="float-right btn btn-primary btn-sm" href="@Url.Action("Create")">New Client</a>
+                        }
+                    }
+                    <a class="float-right btn btn-primary btn-sm" href="@Url.Action("AdvanceSearch")">Advance Search</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <div style="overflow: scroll">
+                <div>
+                    <table id="UsersTable"class="table text-align-center table-bordered table-grid">
+                        <thead class="text-primary font-weight-bold">
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Ref Code</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Contact Person</th>
+                                <th scope="col">Contact No</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">City</th>
+                                <th scope="col">Package</th>
+                                <th scope="col">Options</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (Client client in Model)
+                            {
+                                <tr class="text-dark">
+                                    <td style="">
+                                        @client.PrefixId
+                                    </td>
+                                    <td style="">
+                                        @client.RefCode
+                                    </td>
+                                    <td style="">
+                                        @client.Name
+                                    </td>
+                                    <td style="">
+                                        @client.ContactPersonName
+                                    </td>
+                                    <td style="">
+                                        @client.ContactNo
+                                    </td>
+                                    <td style="">
+                                        @client.Email
+                                    </td>
+                                    <td style="">
+                                        @client.City.Name
+                                    </td>
+                                    <td style="">
+                                        @client.Package.Type
+                                    </td>
+                                    <td>
+                                        @{
+                                            if (roleId != Role.RTPUser && roleId != Role.Activity)
+                                            {
+                                                <a href="@Url.Action("Edit", "Client", new {id = client.Id})" style="cursor: pointer" class="ml-2 text-primary EditUser"><i class="fa fa-pen"></i></a>
+                                            }
+                                        }
+                                        <a href="@Url.Action("ClientDetail", "Client", new {id = client.Id})" style="cursor: pointer" class="ml-2 text-primary ViewUser"><i class="fa fa-eye"></i></a>
+
+                                        @if (roleId != Role.RTPUser && roleId != Role.Activity)
+                                        {
+                                            <a href="@Url.Action("ChangeActiveStatus", "Client", new {id = client.Id})" style="cursor: pointer" class="ml-2 text-primary ChangeActiveStatusUser">
+                                                <i class='fa @(client.IsActive ? "fa-check" : "fa-times")'></i>
+                                            </a>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script type="text/javascript">
+        $("#datepicker").datepicker({
+            dateFormat: "mm/dd/yy"
+        });
+
+        $(document).ready(function () {
+            $("#UsersTable").dataTable();
+        });
+        $(".form-inline").css({
+            width: 1000
+        });
+    </script>
+}
+<style>
+    .form-inline {
+        display: block;
+    }
+</style>
